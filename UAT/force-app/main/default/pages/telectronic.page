@@ -1,0 +1,114 @@
+<apex:page lightningStylesheets="true">
+<html>
+  <head>
+    <script src="/support/api/51.0/lightning/opencti_min.js" type="text/javascript"></script>  
+    <script>
+      function timeout(ms, promise) {
+        return new Promise((resolve, reject) => {
+          const timer = setTimeout(() => {
+            reject(new Error('TIMEOUT'))
+          }, ms)
+
+          promise
+            .then(value => {
+              clearTimeout(timer)
+              resolve(value)
+            })
+            .catch(reason => {
+              clearTimeout(timer)
+              reject(reason)
+            })
+        })
+      }
+      var userId = "{!$User.Id}";
+      var username = "{!$User.Username}";
+      //var url = 'http://192.168.1.171:3000/omega';
+      //var url = 'http://localhost:3000/omega';
+      //var url = 'http://192.168.10.22/apps/api/custom_server_hdi.php'
+      var url = "{!$Setup.HDI_API__c.URL__c}";
+      window.addEventListener('load', function() {
+        sforce.opencti.enableClickToDial({
+          callback: result => {
+            console.log("*********************** enableClickToDial: " + result.success)
+          }
+        });
+
+        sforce.opencti.onClickToDial({
+          listener: (result) => {
+            document.getElementById("call").innerHTML = 'Estableciendo llamada...'
+            document.getElementById("msg").innerHTML = ''
+            document.getElementById("tsk").innerHTML = ''
+            sforce.opencti.setSoftphonePanelVisibility({ visible: true })
+
+            createTask(userId, result.recordId, result.objectType, result.number, 
+              (username, phone, taskId) => {
+                console.log("Conectando con: " + url);
+                timeout(5000, fetch(url, {
+                  method: 'POST',
+                  body: JSON.stringify({ usuario: username, telefono: phone, id_sf: taskId }),
+                  headers:{ 'Content-Type': 'application/json' }
+                }))
+                .then(res => res.json())
+                .then( response => {
+                  updateTask(taskId, '', response.id_llamado, response.error) 
+                  if( response.error == 0){
+                    let tsk = document.getElementById("tsk")
+                    tsk.innerHTML = "Llamada correcta"
+                    sforce.opencti.setSoftphonePanelVisibility({ visible: false })
+                  }
+                })
+                .catch(error => {
+                  errorMsg = `El servicio de llamada ha fallado, error: ${error.message}`
+                  updateTask(taskId, errorMsg, null, -1)
+                });
+            });
+          }
+        });
+      }); //onLoad
+
+      function createTask(userId, objId, objType, phone, callback){
+        sforce.opencti.runApex({
+          apexClass: 'TaskWebService', 
+          methodName: 'createTask', 
+          methodParams: `userId=${userId}&objId=${objId}&objType=${objType}&phone=${phone}`,
+          callback: res => {
+            if( res.success ) {
+              taskObj = JSON.parse(res.returnValue.runApex);
+              callback(username, phone, taskObj.Id);
+            } else {
+              let tsk = document.getElementById("tsk");
+              tsk.innerHTML = 'No se pudo crear la tarea, el error es: ' + res.errors;
+            }
+          }
+        })
+      }
+
+      function updateTask(taskId, description, llamadaId, errorId) {
+        let params = `taskId=${taskId}&description=${description}&llamadaId=${llamadaId}&error=${errorId}`
+        console.log(params)
+        sforce.opencti.runApex({
+          apexClass: 'TaskWebService', 
+          methodName: 'updateTask', 
+          methodParams: params,
+          callback: res => {
+            console.log(`updateTask result ${JSON.stringify(res)}`)
+            taskObj = JSON.parse(res.returnValue.runApex)
+            if( taskObj.Description ) {
+              let tsk = document.getElementById("tsk")
+              tsk.innerHTML = taskObj.Description
+            }
+          }
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <div id="call">
+    </div>
+    <div id="msg">
+    </div>
+    <div id="tsk">
+    </div>
+  </body>
+</html>
+</apex:page>

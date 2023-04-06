@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Autorespuesta Devoluciones</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>no-reply@hdi.cl</replyToEmail>
+            <senderEmail>no-reply@hdi.cl</senderEmail>
+            <senderName>Atención Clientes</senderName>
+            <template>unfiled$public/SERVICIO_Autorespuesta_de_Web_to_Case</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Post venta</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Devolución</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>posventa.hdi.salesforce@gmail.com</replyToEmail>
+            <senderEmail>no-reply@hdi.cl</senderEmail>
+            <senderName>SAC - Devoluciones</senderName>
+            <template>unfiled$public/SERVICIO_Autorespuesta_de_Web_to_Case_Devoluciones</template>
+        </ruleEntry>
+    </autoResponseRule>
+    <autoResponseRule>
+        <fullName>Pérdidas Totales</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Pérdida Total</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>no-reply@hdi.cl</replyToEmail>
+            <senderEmail>no-reply@hdi.cl</senderEmail>
+            <senderName>SAC - Pérdidas Totales</senderName>
+            <template>P_rdidas_totales/SERVICIO_Autorespuesta_de_Web_to_Case_P_rdidas_Totales</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

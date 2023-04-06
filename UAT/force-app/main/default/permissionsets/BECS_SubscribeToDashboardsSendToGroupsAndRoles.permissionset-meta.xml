@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Establecer Grupos y Roles Públicos como destinatarios de suscripciones de tableros en Lightning Experience.
+
+Requiere este permiso:  
+* Subscribe to Dashboards: Add Recipients.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Subscribe to Dashboards: Send to Groups and Roles</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeDashboardRolesGrps</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeDashboardToOtherUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeToLightningDashboards</name>
+    </userPermissions>
+</PermissionSet>

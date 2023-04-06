@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Asignar_asegurado</name>
+        <label>Asignar asegurado</label>
+        <locationX>578</locationX>
+        <locationY>887</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BECS_Asegurado__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_Assign_CLF</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Asigna CLF a la Currency</description>
+        <name>BECS_Assign_CLF</name>
+        <label>Assign CLF</label>
+        <locationX>710</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.CurrencyIsoCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>CLF</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_CheckOrigen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Actualiza la fecha de la primera y última llamada.</description>
+        <name>BECS_AssignFechadeAsignacion</name>
+        <label>Assign Fecha de Asignación</label>
+        <locationX>578</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BECS_FechadeAsignacion__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BECS_GetFechaYHora</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Cambia_Cuenta</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Asigna CLF a la divisa, el codigo de la marca al id marca vehículo, el código del vehículo al modelo del vehículo y el nombre al codigo oportunidad web.</description>
+        <name>BECS_AssignManual</name>
+        <label>Assign Manual</label>
+        <locationX>842</locationX>
+        <locationY>1343</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Id_Marca_vehiculo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.HDI4I_Marca_objeto__r.HDI4I_Codigo_de_la_marca__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Id_Modelo_vehiculo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.HDI4I_Modelo_objeto__r.HDI4I_Codigo_del_modelo__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Id_Oportunidad_web__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Origen_de_la_oportunidad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Manual</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_CheckPrioridad100</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Asigna el propietario al primer miembro del grupo: BECS_CotizacionWebExito y asigna ganada a la etapa</description>
+        <name>BECS_AssignOwner</name>
+        <label>Assign Owner</label>
+        <locationX>644</locationX>
+        <locationY>2495</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BECS_GetGroupMember.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Ganada</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Actualia el propietario al primer miembro del grupo: BECS_CotizacionWebExitoBE y asigna Ganada a la etapa</description>
+        <name>BECS_AssignOwnerBE</name>
+        <label>Assign Owner BE</label>
+        <locationX>116</locationX>
+        <locationY>2495</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BECS_GetGroupMemberBE.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Ganada</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>BECS_AssignPrioridad100</name>
+        <label>Assign Prioridad 100</label>
+        <locationX>50</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Prioridad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>1</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_CheckBancoEstado</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>BECS_AssignPrioridadContratar</name>
+        <label>Assign Prioridad Contratar</label>
+        <locationX>1106</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Prioridad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>2</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>BECS_AssignPrioridadCotiza</name>
+        <label>Assign Prioridad Cotiza</label>
+        <locationX>578</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Prioridad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>4</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>BECS_AssignPrioridadElegir</name>
+        <label>Assign Prioridad Elegir</label>
+        <locationX>842</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Prioridad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>3</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>BECS_AssignPrioridadExito</name>
+        <label>Assign Prioridad Éxito</label>
+        <locationX>314</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.HDI4I_Prioridad__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>5</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_CheckBancoEstado</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Asigna CLF a la divisa y la oportunidad web al nombre</description>
+        <name>BECS_AssignVSV2</name>
+        <label>Assign VSV2</label>
+        <locationX>578</locationX>
+        <locationY>1343</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.HDI4I_Id_Oportunidad_web__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BECS_CheckPrioridad100</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Comprueba  PasoCotizacionWeb = &apos;exito&apos; y dependiendo del Banco Estado true o false asigna a los correspondientes Owners</description>
+        <name>BECS_CheckBancoEstado</name>
+        <label>Check Banco Estado</label>
+        <locationX>710</locationX>
+        <locationY>2015</locationY>
+        <defaultConnectorLabel>No éxito o valor erróneo</defaultConnectorLabel>
+        <rules>
+            <name>BECS_ExitoBE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Éxito</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Parent.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canal Banco Estado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_GetGroupCotizacionWebExitoBE</targetReference>
+            </connector>
+            <label>Éxito BE</label>
+        </rules>
+        <rules>
+            <name>BECS_ExitoNoBE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Éxito</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Campaign.Parent.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Canal Banco Estado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_GetGrupoCotizacionWebExito</targetReference>
+            </connector>
+            <label>Éxito No BE</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que haya un miembro en el grupo.</description>
+        <name>BECS_CheckHayMiembro</name>
+        <label>Check Hay Miembro</label>
+        <locationX>776</locationX>
+        <locationY>2375</locationY>
+        <defaultConnectorLabel>Sí es nulo</defaultConnectorLabel>
+        <rules>
+            <name>BECS_NoEsNuloBE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_GetGroupMember</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignOwner</targetReference>
+            </connector>
+            <label>No es nulo</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que haya un miembro en el grupo de Banco Estado.</description>
+        <name>BECS_CheckHayMiembroBE</name>
+        <label>Check Hay Miembro BE</label>
+        <locationX>248</locationX>
+        <locationY>2375</locationY>
+        <defaultConnectorLabel>Sí es nulo</defaultConnectorLabel>
+        <rules>
+            <name>BECS_Noesnulo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_GetGroupMemberBE.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignOwnerBE</targetReference>
+            </connector>
+            <label>No es nulo</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que OwnerID haya cambiando y que el nombre del perfil del OwnerID sea Ejecutiva Call Center</description>
+        <name>BECS_CheckIsAssigned</name>
+        <label>Check Is Assigned</label>
+        <locationX>710</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Cambia_Cuenta</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Assigned</defaultConnectorLabel>
+        <rules>
+            <name>BECS_IsAssigned</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ejecutiva Call Center</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignFechadeAsignacion</targetReference>
+            </connector>
+            <label>Is Assigned</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que el origen de la oportunidad  sea VSV2. Antes se comprobaba lead source.</description>
+        <name>BECS_CheckOrigen</name>
+        <label>Check Origen de Oportunidad</label>
+        <locationX>710</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>BECS_AssignManual</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Manual</defaultConnectorLabel>
+        <rules>
+            <name>BECS_VSV2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Origen_de_la_oportunidad__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>VSV2</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Id_Oportunidad_web__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignVSV2</targetReference>
+            </connector>
+            <label>VSV2</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba las prioridades y los pasos web</description>
+        <name>BECS_CheckPrioridad100</name>
+        <label>Check Prioridad 100</label>
+        <locationX>710</locationX>
+        <locationY>1559</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BECS_Prioridad100</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Prioridad__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>100</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cotizar</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Elegir</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contratar</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Éxito</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignPrioridad100</targetReference>
+            </connector>
+            <label>Prioridad 100</label>
+        </rules>
+        <rules>
+            <name>BECS_PasoWebExito</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Éxito</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignPrioridadExito</targetReference>
+            </connector>
+            <label>Paso Web Éxito</label>
+        </rules>
+        <rules>
+            <name>BECS_PasoWebCotizar</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cotizar</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignPrioridadCotiza</targetReference>
+            </connector>
+            <label>Paso Web Cotizar</label>
+        </rules>
+        <rules>
+            <name>BECS_PasoWebElegir</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Elegir</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignPrioridadElegir</targetReference>
+            </connector>
+            <label>Paso Web Elegir</label>
+        </rules>
+        <rules>
+            <name>BECS_PasoWebContratar</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.HDI4I_Paso_cotizacion_web__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contratar</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_AssignPrioridadContratar</targetReference>
+            </connector>
+            <label>Paso Web Contratar</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que el Record Type != null y si el Record Type = Oportunidad venta seguro automóvil.</description>
+        <name>BECS_CheckRecordType</name>
+        <label>Check Record Type</label>
+        <locationX>1172</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Other Record Types</defaultConnectorLabel>
+        <rules>
+            <name>BECS_OportunidadVentaSeguroAutomovil</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HDI4I_Oportunidad_venta_seguro_automovil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckIsAssigned</targetReference>
+            </connector>
+            <label>Oportunidad venta seguro automóvil</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Cambia_Cuenta</name>
+        <label>Cambia Cuenta</label>
+        <locationX>710</locationX>
+        <locationY>767</locationY>
+        <defaultConnector>
+            <targetReference>BECS_Assign_CLF</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No cambia</defaultConnectorLabel>
+        <rules>
+            <name>Cambia</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AccountId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AccountId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Asignar_asegurado</targetReference>
+            </connector>
+            <label>Cambia</label>
+        </rules>
+    </decisions>
+    <description>Se ejecuta el Flow ANTES de guardar el registro de Opportunity:
+0) Comprueba que el Record Type != null para el registro.
+1) Comprueba el Record Type del registro.
+2) Comprueba si ha sido asignada la Fecha de Asignación.
+3) Comprueba se cambia el Account ID.
+4) Asigna CLF a la Currency.
+5) Comprueba el Origen de la Oportunidad.
+6) Comprueba la Prioridad.
+7) Comprueba Paso cotización web = &apos;Éxito&apos; y dependiendo de si Banco Estado es True o False asigna a los correspondientes Owners.
+7.1) Comprueba que haya un miembro en el grupo de Banco Estado.
+7.2) Comprueba que haya un miembro en el grupo.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>BECS_GetFechaYHora</name>
+        <dataType>Date</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>CampoPrimeraLLamada</name>
+        <dataType>String</dataType>
+        <expression>IF(!ISBLANK({!$Record.BECS_FechaHoraPrimerLlamadaFH__c}), Text(DATEVALUE({!$Record.BECS_FechaHoraPrimerLlamadaFH__c})) + &apos; &apos; + RIGHT({!PrimeraLlamada},5) + &apos;:&apos; + SUBSTITUTE(RIGHT(Text(DATETIMEVALUE({!$Record.BECS_FechaHoraPrimerLlamadaFH__c})),3), &apos;Z&apos;, &apos;&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>CampoUltimaLlamada</name>
+        <dataType>String</dataType>
+        <expression>IF(!ISBLANK({!$Record.BECS_FechaHoraUltimaLlamadaFH__c}), Text(DATEVALUE({!$Record.BECS_FechaHoraUltimaLlamadaFH__c})) + &apos; &apos; + RIGHT({!UltimaLLamada},5) + &apos;:&apos; + SUBSTITUTE(RIGHT(Text(DATETIMEVALUE({!$Record.BECS_FechaHoraUltimaLlamadaFH__c})),3), &apos;Z&apos;, &apos;&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <interviewLabel>BECS_Opportunity - Flow Before {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_Opportunity - Flow Before</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Recoge el Grupo Público donde se encuentra la persona a asignar como propietario.</description>
+        <name>BECS_GetGroupCotizacionWebExitoBE</name>
+        <label>Get Group Cotización Web Éxito BE</label>
+        <locationX>248</locationX>
+        <locationY>2135</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>BECS_GetGroupMemberBE</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>BECS_CotizacionWebExitoBE</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recoge el primer usuario</description>
+        <name>BECS_GetGroupMember</name>
+        <label>Get Group Member</label>
+        <locationX>776</locationX>
+        <locationY>2255</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>BECS_CheckHayMiembro</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BECS_GetGrupoCotizacionWebExito.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>GroupMember</object>
+        <sortField>SystemModstamp</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recoge el primer usuario</description>
+        <name>BECS_GetGroupMemberBE</name>
+        <label>Get Group Member</label>
+        <locationX>248</locationX>
+        <locationY>2255</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>BECS_CheckHayMiembroBE</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BECS_GetGroupCotizacionWebExitoBE.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>GroupMember</object>
+        <sortField>SystemModstamp</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Recoge el Grupo Público donde se encuentra la persona a asignar como propietario.</description>
+        <name>BECS_GetGrupoCotizacionWebExito</name>
+        <label>Get Group Cotización Web Éxito</label>
+        <locationX>776</locationX>
+        <locationY>2135</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>BECS_GetGroupMember</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>BECS_CotizacionWebExito</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>1046</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckRecordType</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>PrimeraLlamada</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.BECS_FechaHoraPrimerLlamadaFH__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>UltimaLLamada</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.BECS_FechaHoraUltimaLlamadaFH__c}</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,857 @@
+<apex:page standardController="Case" extensions="CaseControllerExt" standardStyleSheets="false">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>
+<apex:stylesheet value="{! $Resource.HDI_css}"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>   
+    <body>
+        
+        <form action="" class="formulario" id="formulario">
+            <div class="apexp">
+                <div class="individualPalette">
+                    <div class="caseBlock">
+                        <div id="j_id0:j_id2:j_id3">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mt-lg-5 mb-4 mt-4" style="padding-left: 120px;">
+                                <h2 class="titulo text-green font-weight-bold m-0">Seguimiento Estado Devolución de Prima</h2>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mt-lg-5 mb-4 mt-4" style="padding-left: 120px;">
+                                <h6 class="text-green m-0" style="font-size: 16px;">En caso de que usted haya dado término anticipado a su poliza y requiere saber el estado de la devolución proporcional resultante de este término, favor complete los siguientes datos:</h6>
+                            </div>
+                            <div class="pbBody">
+                                <div id="j_id0:j_id2:j_id3:j_id4">
+                                    <div class="pbSubsection">
+                                        
+                                        <div class="row" style="padding-left: 120px;">
+                                            <div class="col-lg-8 position-relative">
+                                                <div class="row">
+                                                   <div class="col-12 col-lg-4">
+                                                       <div class="form-group formulario__grupo" id="grupo__nombre">                                                           
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="nombre"><span>(*)</span>Nombre del contacto</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="nombre" id="nombre" type="text" value="{!name}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 caracteres y solo puede contener letras.</p>
+                                                           </div>                                                           
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__rut">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="rut"><span>(*)</span>Rut (Ejemplo: 12345678-9)</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="rut" id="rut" type="text" value="{!rut}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El rut tiene que ser sin puntos y con guión.</p>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__phone">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="phone"><span>(*)</span>Teléfono (Ejemplo: +56912345678)</label>
+                                                           <div class="formulario__grupo-input">
+                                                           	   <input class="formulario__input form-control" name="phone" id="phone" type="text" value="{!phone}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">Debe ingresar teléfono con código de país.</p>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__email">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="email"><span>(*)</span>Email (Ejemplo: email@example.com)</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="email" id="email" type="text" value="{!email}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">Debe ingresar email con formato email@example.com.</p>
+                                                           </div>
+                                                       </div>
+                                                       <!--div class="form-group formulario__grupo" id="grupo__asunto">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="asunto"><span>(*)</span>Asunto</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="asunto" id="asunto" type="text"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El asunto tiene que ser de 4 a 40 caracteres.</p>
+                                                           </div>
+                                                       </div-->
+                                                   </div>
+                                                   <div class="col-12 col-lg-4">
+                                                       <div class="form-group formulario__grupo" id="grupo__nomPag">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="nomPag"><span>(*)</span>Nombre pagador según póliza</label>
+                                                           <div class="formulario__grupo-input">    
+                                                               <input class="formulario__input form-control" name="nomPag" id="nomPag" type="text" value="{!nomPag}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El nombre del pagador tiene que ser de 4 a 16 caracteres y solo puede contener letras.</p>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__motivo">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="motivo"><span>(*)</span>Motivo del caso</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <select id="motivo" name="motivo" class="browser-default custom-select formulario__input">
+                                                                  <option value="">--Ninguno--</option>
+                                                                  <!--option value="Renuncia al producto">Renuncia al producto</option-->
+                                                                  <option value="Estado devolución pendiente">Estado devolución pendiente</option>
+                                                                  <option value="Devolución mal efectuada">Devolución mal efectuada</option>
+                                                               </select>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">Debe elegir el motivo del caso.</p>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__desc">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="descripcion"><span>(*)</span>Descripción</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <textarea class="form-control formulario__input" style="resize: none;" rows="8" id="desc" maxlength="250" name="desc"  type="text" wrap="soft" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
+                                                               <div class="text-secondary smallf pr-5" id="res">0/250</div>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">La descripción debe tener mínimo 4 caracteres y máximo 250. Puede contener numeros, letras y guion bajo.</p>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="col-12 col-lg-4">
+                                                       <div class="form-group formulario__grupo" id="grupo__rutPag">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="rutPag"><span>(*)</span>Rut pagador según póliza (Ejemplo: 12345678-9)</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control"  name="rutPag" id="rutPag" type="text" value="{!rutPag}"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El rut tiene que ser sin puntos y con guión.</p>
+                                                           </div>
+                                                           <label class="text-green smallf pr-5 formulario__label" for="rutPag" style="color: #00671E;">
+                                                                <Strong>Recuerde que las devoluciones se realizan solo al RUT pagador de la póliza.</Strong>
+                                                            </label>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__banco">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="banco"><span>(*)</span>Banco del pagador según póliza</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <select id="banco" name="banco" class="browser-default custom-select formulario__input">
+                                                                   <option value="">--Ninguno--</option>
+                                                                    <option value="BancoEstado">BancoEstado</option>
+                                                                    <option value="Banco de Chile">Banco de Chile / Edwards</option>
+                                                                    <option value="Banco de Crédito e Inversiones (BCI)">Banco de Crédito e Inversiones (BCI)</option>
+                                                                    <option value="Banco Bice">Banco Bice</option>
+                                                                    <option value="HSBC Bank">HSBC Bank</option>
+                                                                    <option value="Banco Santander">Banco Santander</option>
+                                                                    <option value="Itaú / Corpbanca">Itaú / Corpbanca</option>
+                                                                    <option value="Banco Security">Banco Security</option>
+                                                                    <option value="Scotiabank">Scotiabank</option>
+                                                                    <option value="Scotiabank Azul (Ex BBVA)">Scotiabank Azul (Ex BBVA)</option>
+                                                                    <option value="Banco Falabella">Banco Falabella</option>
+                                                                    <option value="Banco Ripley">Banco Ripley</option>
+                                                                    <option value="Banco Consorcio">Banco Consorcio</option>
+                                                                    <option value="Banco BTG Pactual Chile">Banco BTG Pactual Chile</option>
+                                                                    <option value="Banco Internacional">Banco Internacional</option>
+                                                                    <option value="Banco do Brasil">Banco do Brasil</option>
+                                                                    <option value="JP Morgan Chase Bank">JP Morgan Chase Bank</option>
+                                                                    <option value="Banco de la Nación Argentina">Banco de la Nación Argentina</option>
+                                                                    <option value="MUFG Bank (Ex The Bank of Tokyo)">MUFG Bank (Ex The Bank of Tokyo)</option>
+                                                                    <option value="China Construction Bank">China Construction Bank</option>
+                                                                    <option value="Bank of China">Bank of China</option>
+                                                                </select>
+                                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                <p class="formulario__input-error">Debe elegir banco.</p>
+                                                            </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__tipoCu">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="tipoCu"><span>(*)</span>Tipo de cuenta pagador según póliza</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <select id="tipoCu" name="tipoCu" class="browser-default custom-select formulario__input">
+                                                                    <option value="">--Ninguno--</option>
+                                                                    <option value="Cuenta corriente">Cuenta corriente</option>
+                                                                    <option value="Cuenta vista">Cuenta vista</option>
+                                                                    <option value="Cuenta de ahorro">Cuenta de ahorro</option>
+                                                                    <option value="Chequera electrónica">Chequera electrónica</option>>
+                                                                </select>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">Debe elegir el tipo de cuenta.</p>
+                                                            </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__nCuenta">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="nCuenta"><span>(*)</span>N° de cuenta pagador según póliza</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="nCuenta" id="nCuenta" type="text"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">El N° de la cuenta tiene que ser de 4 a 16 dígitos y solo puede contener números.</p>
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group formulario__grupo" id="grupo__emailCon">
+                                                           <label class="text-secondary smallf pr-5 formulario__label" for="emailCon"><span>(*)</span>Mail confirmación del pagador (Ejemplo: example@email.com)</label>
+                                                           <div class="formulario__grupo-input">
+                                                               <input class="formulario__input form-control" name="emailCon" id="emailCon" type="text"/>
+                                                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                               <p class="formulario__input-error">Debe ingresar email con formato email@example.com.</p>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                </div>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <div class="row">
+                                                   <div class="uploadBox col-lg-12">
+                                                       <table cellpadding="0" cellspacing="0" class="uploadTable col-lg-12">
+                                                           <tr>
+                                                               
+                                                                 <td class="col-lg-6"><input class="btn" type="file" accept="doc, txt, pdf" multiple="true" id="filesInput" name="filesInput" /></td>
+                                                               
+                                                               
+                                                                 <td class="buttonTD">
+                            								     <input id="uploadButton" name="uploadButton" type="submit" title="Upload" class="btn float-right btn-success" style="background-color: #006729; color: white; width: 100px;" value=" Enviar "/>
+                                                                 <input id="subtipo" type="hidden" name="subtipo" value="Devolución Clientes"/>                            
+                                                                 <!--input id="clear" type="button" title="Clear" class="btn" value=" Clear "/-->
+                                                               </td>
+                                                               
+
+                                                           </tr>
+                                                       </table>
+                                                   </div>
+                                                   <div class="col-lg-6">
+                                                                                                                                             <br/>
+                                                       <p class="text-secondary smallf pr-5 formulario__label">Para adjuntar más de un archivo, debes hacerlo manteniendo la tecla "CTRL" presionada, y sin soltarla, hacer clic sobre todos los archivos que sean necesarios adjuntar.  Cuando hayas terminado suelta la tecla CTRL y has clic sobre el botón abrir.</p>                                                                                   
+                                                   </div>
+                                                   <br />
+                                                <br />
+                                                <br />
+                                                   <div class="formulario__mensaje col-lg-12" id="formulario__mensaje">
+													   <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+												   </div>
+                                                   <div class="formulario__grupo formulario__grupo-btn-enviar col-lg-12">
+                                                       <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="modalAlert" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4 class="titleModal"><strong>HDI Seguros</strong></h4>
+                            </div>
+                            <!--div class="col-lg-6">
+                                <span class="close">&times;</span>
+                            </div-->
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="messageAlert"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input id="accepted" name="accepted" onclick="reloadPage()" type="button" title="Aceptar" value=" Aceptar "
+                                        class="btn float-right btn-hide-alert btn-success" style="background-color: #006729; color: white; width: 100px;" />
+                                <input id="showInfo" name="showInfo" onclick="hideAlert()" type="button" title="Aceptar" value=" Aceptar "
+                                        class="btn float-right btn-hide-alert btn-success" style="background-color: #006729; color: white; width: 100px;" />
+                            </div>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </form>
+	
+    <style>
+        .modal {
+            display: none;
+            position: absolute;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        .modal::backdrop {
+            overflow: hidden;
+        }
+
+        .btn-hide-alert {
+            display: none;
+        }
+        /*.close {
+            display: none;
+            justify-content: flex-end;
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }*/
+    </style>
+                    
+   <script type="text/javascript">
+        
+        
+        var parentId = "{!id}";
+    	var cas;
+        var newDat;
+        var newDatstr;
+        var idpro;
+        var $j = jQuery.noConflict();
+    
+        //var span = document.getElementsByClassName("close")[0];
+        /*span.onclick = function() {
+            modal.style.display = "none";
+            reloadPage()
+        }*/
+        
+    $j(document).ready(function() {
+        //Oyente de eventos para hacer clic en el botón Cargar
+        $j("#uploadButton").click(function(){
+            //prepareFileUploads();
+            
+        });
+        
+        //Escucha de eventos para borrar los detalles de carga / barras de estado una vez que se completa la carga
+        $j("#clear").on('click',function(){
+            $j(".upload").remove();
+        });
+    });
+    var ca = '';
+    var byteChunkArray; 
+    var files;
+    var currentFile;
+    var $upload;
+    var CHUNK_SIZE = 180000; //Debe ser divisible por 3, de lo contrario, se producirán daños en los datos.
+    var VIEW_URL = '/servlet/servlet.FileDownload?file=';
+    //var parentId, verá que esta variable se usa a continuación, pero está configurada en el componente, ya que este es un valor dinámico pasado por el atributo del componente
+    
+    
+
+    
+    function showAlert(message){
+        document.getElementById("messageAlert").innerText = message;
+        var modal = document.getElementById("modalAlert");
+        modal.style.display = "block";
+    }
+
+    function hideAlert() {
+        var modal = document.getElementById("modalAlert");
+        modal.style.display = "none";
+    }
+
+    
+    function reloadPage(){
+        var uri = window.location.toString();
+        if (uri.indexOf("?") > 0) {
+            var clean_uri = uri.substring(0, uri.indexOf("?"));
+            window.history.replaceState({}, document.title, clean_uri);
+        }
+        location.reload(true);
+    }
+
+    //Se ejecuta cuando se selecciona el botón Iniciar carga
+    function prepareFileUploads(){
+                
+        console.log('lo que llega de afuera: '+newDatstr);
+        //Obtenga el (los) archivo (s) del campo de entrada
+        files = document.getElementById('filesInput').files;
+        
+        //Continuar solo si hay archivos seleccionados
+        if(files.length == 0){
+            //alert('Su solicitud fue enviada con exito');
+            soloCa();
+            //return; //end function
+        }
+        
+        //Deshabilitar entradas y botones durante el proceso de carga
+            $j(".uploadBox input").attr("disabled", "disabled");
+            $j(".uploadBox button").attr({
+            disabled: "disabled",
+            class: "btnDisabled"
+            });
+        
+        //Construya los divs de carga para cada archivo seleccionado
+        var uploadMarkup = '';
+        for(i = 0; i < files.length; i++){
+            //Determinar el tamaño de visualización del archivo
+            if(files[i].size < 1000000){
+                var displaySize = Math.floor(files[i].size/1000) + 'K';
+            }else{
+                var displaySize  = Math.round((files[i].size / 1000000)*10)/10 + 'MB';
+            }
+            
+            //Para cada archivo que se carga, cree un div para representar ese archivo, incluye el tamaño del archivo, la barra de estado, etc. data-Status rastrea el estado de la carga
+            uploadMarkup += '<div class="upload" data-status="pending" data-index="'+i+'">'; //índice utilizado para corresponder estos cuadros de carga a los registros en la matriz de archivos
+            uploadMarkup += '<div class="fileName text-secondary smallf pr-5 formulario__label"><span class="name text-secondary smallf pr-5 formulario__label">'+ files[i].name + '</span> - '+ displaySize+ ' <i class="adjunto fas fa-check-circle"></i></div>';
+            
+            uploadMarkup += '<div class="clear"/>';
+            
+            uploadMarkup += '</div>';
+        }
+        
+        //Agregar marcado al cuadro de carga
+        $j('.uploadBox').append(uploadMarkup);
+        
+        //Una vez que se han agregado elementos a la página que representa las cargas, comience el proceso de carga real
+        checkForUploads();
+    }
+    
+    function checkForUploads(){
+        //Obtenga div del primer elemento de carga coincidente que esté 'pendiente', si no hay ninguno, todas las cargas están completas
+        $upload = $j(".upload:first[data-status='pending']");
+        console.log($upload.attr('data-index'));
+        if($upload.length != 0){
+            //Según el índice del div, obtenga el archivo correcto de la matriz de archivos
+            currentFile = files[$upload.attr('data-index')];
+            
+            /*Construya la matriz byteChunkArray para el archivo actual que estamos procesando. Esta matriz tiene el formato:
+            ['0-179999','180000-359999',etc] y representa los fragmentos de bytes que se cargarán individualmente.*/
+            byteChunkArray = new Array();  
+            console.log(currentFile);
+            console.log('webkitSlice '+currentFile.slice());
+            
+            //Primero verifique si el tamaño del archivo es menor que el tamaño del fragmento, si es así, primero y solo el fragmento es el tamaño completo del archivo
+            if(currentFile.size <= CHUNK_SIZE){
+                byteChunkArray[0] = '0-' + (currentFile.size - 1);
+                console.log(byteChunkArray[0]);
+            }else{
+                //Determine cuántos bloques de bytes completos componen el archivo,
+                var numOfFullChunks = Math.floor(currentFile.size / CHUNK_SIZE); //i.e. 1.2MB el archivo sería 1000000 / CHUNK_SIZE
+                var remainderBytes = currentFile.size % CHUNK_SIZE; // determinaría el resto de 1200000 bytes que no es un fragmento completo
+                var startByte = 0;
+                var endByte = CHUNK_SIZE - 1;
+                
+                //Recorra el número de fragmentos completos y cree la matriz byteChunkArray
+                for(i = 0; i < numOfFullChunks; i++){
+                    byteChunkArray[i] = startByte+'-'+endByte;
+                    
+                    //Establecer nuevos bytes de inicio y parada para la próxima iteración del bucle
+                    startByte = endByte + 1;
+                    endByte += CHUNK_SIZE;
+                }
+                
+                //Agregue la última parte de los bytes restantes al byteChunkArray
+                startByte = currentFile.size - remainderBytes;
+                endByte = currentFile.size;
+                byteChunkArray.push(startByte+'-'+endByte);
+            }
+            
+            //Comience a procesar el byteChunkArray para el archivo actual, el parámetro es '' porque este es el primer fragmento que se carga y no hay ID adjunto
+            processByteChunkArray('');
+            
+        }else{
+            //Todas las cargas completadas, habilite la entrada y los botones
+            $j(".uploadBox input").removeAttr("disabled");
+            $j(".uploadBox button").removeAttr("disabled").attr("class","btn");
+            
+            /*Elimine el elemento de entrada de navegación y reemplácelo, esto esencialmente elimina
+            los archivos seleccionados y ayuda a evitar cargas duplicadas*/
+            $j("#filesInput").replaceWith('<input type="file" name="file" multiple="true" id="filesInput">');
+            
+            //alert('Su requerimiento ha sido ingresado exitosamente. Su número de requerimiento fue enviado a su correo electrónico');
+            showAlert('Su requerimiento ha sido ingresado exitosamente. Su número de requerimiento fue enviado a su correo electrónico.')
+            document.getElementById("showInfo").style.display = "none";
+            document.getElementById("accepted").style.display = "block";
+        }
+    }
+    function soloCa(){
+        Json()
+        var a ='a', b = 'a', c = 'a', d = 'a', f = 'a';
+    	CaseControllerExt.attachBlob(a,b,c,d,f,newDatstr,function(result,event){
+        
+        
+        });
+    }
+    
+    function Json(){
+        var sname = document.querySelector('#nombre').value,
+            srut = document.querySelector('#rut').value,
+            scodCo = document.querySelector('#nCuenta').value,
+            snomCo = document.querySelector('#nCuenta').value,
+            sphone = document.querySelector('#phone').value,
+            semail = document.querySelector('#email').value,
+            //sasunto = document.querySelector('#asunto').value,
+            smotivo = document.querySelector('#motivo').value,
+            sdesc = document.querySelector('#desc').value,
+            snomPag = document.querySelector('#nomPag').value,
+            srutPag = document.querySelector('#rutPag').value,
+            sbanco = document.querySelector('#banco').value,
+            stipoCu = document.querySelector('#tipoCu').value,
+            snCuenta = document.querySelector('#nCuenta').value,
+            semailCon = document.querySelector('#emailCon').value,
+            snSini = document.querySelector('#tipoCu').value,
+            srelacionA = document.querySelector('#tipoCu').value,
+            sSubtipo = document.querySelector('#subtipo').value;
+        
+            
+            newDat = {            	
+                id:idpro,
+                nombre:sname,
+                rut:srut,
+                codCorredor:scodCo,
+                nombreCorredor:snomCo,
+                telefono:sphone,
+                email:semail,
+                //asunto:sasunto,
+                motivo:smotivo,
+                descripcion:sdesc,
+                nombrePagador:snomPag,
+                rutPagador:srutPag,
+                banco:sbanco,
+                tipoCuenta:stipoCu,
+                nCuenta:snCuenta,
+                emailConfirmacion:semailCon,
+                nSiniestro:snSini,
+                relacionA:srelacionA,
+                subTipo:sSubtipo
+            };
+            
+            console.log(newDat);
+            newDatstr = JSON.stringify(newDat);
+            console.log(newDatstr);
+    }
+    //Carga un fragmento de bytes, si se pasa attachId, adjuntará los bytes a un registro de archivo adjunto existente
+    function processByteChunkArray(attachmentId){
+        
+        Json();
+        
+        //Continúe si todavía hay valores en el byteChunkArray, si no hay ninguno, se han cargado todas las partes del archivo
+        if(byteChunkArray.length > 0){
+            //Determine el rango de bytes que debe cargarse, si byteChunkArray es como... ['0-179999','180000-359999']
+            var indexes = byteChunkArray[0].split('-'); //... obtener el primer rango de índice '0-179999' -> ['0','179999']
+            var startByte = parseInt(indexes[0]); //0
+            var stopByte = parseInt(indexes[1]); //179999
+            
+            //Corte la parte del archivo que queremos cargar, la variable currentFile se establece en el método checkForUploads () que se llama antes de este método
+            if(currentFile.slice()){
+                var blobChunk = currentFile.slice(startByte , stopByte + 1);
+                console.log('entró en 1');
+            }else if (currentFile.mozSlice) {
+                var blobChunk = currentFile.mozSlice(startByte , stopByte + 1);
+                console.log('entró en 2');
+            }else{console.log('no entró');}
+            
+            //Cree un nuevo objeto lector, parte de la API de archivos HTML5
+            var reader = new FileReader();
+            
+            //Lea el blobChunk como una cadena binaria, la función reader.onloadend a continuación se llama automáticamente después de esta línea
+            reader.readAsBinaryString(blobChunk);
+            
+            //Cree una función reader.onload, esto se ejecutará inmediatamente después de la función reader.readAsBinaryString () anterio;
+            reader.onloadend = function(evt){ 
+                if(evt.target.readyState == FileReader.DONE){ //Asegúrate de que la lectura se haya realizado correctamente, DONE == 2
+                    //Base 64 codifica los datos para su transmisión al servidor con JS remoting, window.btoa actualmente compatible con algunos navegadores
+                    var base64value = window.btoa(evt.target.result);
+                    
+                    //Use js remoting para enviar el fragmento codificado en base64 para cargar
+                    
+                    console.log('El id es el siguiente: '+"{!id}");
+                    console.log('El id atta: '+idpro);
+                    
+                    CaseControllerExt.attachBlob(parentId,attachmentId,currentFile.name,currentFile.type,base64value,newDatstr,function(result,event){
+                        console.log('Status: '+event.status);
+                        console.log('result: '+result);
+                        
+                        
+                        //Continúe si no hubo errores con la llamada remota
+                        if(event.status == true){
+                            //Actualice el porcentaje de la barra de estado y el porcentaje, primero determine el porcentaje completado
+                            var percentComplete = Math.round((stopByte / currentFile.size) * 100);
+                            $upload.find(".percentComplete").text(percentComplete + '%');
+                            $upload.find(".statusBarPercent").css('width',percentComplete + '%');
+                            
+                            //Elimine la información del índice de la matriz byteChunkArray para la pieza que acaba de cargar.
+                            byteChunkArray.shift(); //elimina 0 índice
+                            
+                            //Establecer el archivo adjuntoId del archivo que estamos procesando ahora
+                            jj = JSON.parse(result);
+                            console.log('resultado: '+jj.idd);
+                            attachmentId = jj.ataid;
+                            idpro = jj.idd;
+                            
+                            //Llame al proceso byteChunkArray para cargar la siguiente parte del archivo
+                            processByteChunkArray(attachmentId);
+                            
+                        }else{
+                            //Si el script está aquí, algo se rompió en la llamada remota JavasSript
+                            //Agregar clases para reflejar el error
+                            $upload.attr('data-status','complete');
+                            $upload.addClass('uploadError');
+                            $upload.find(".statusPercent").addClass('statusPercentError');
+                            $upload.attr('title',event.message);
+                            
+                            //Verifique y continúe con el siguiente archivo para cargar
+                            checkForUploads();
+                        }
+                    },{escape: false}); 
+
+                }else{
+                    //Manejo de errores por mala lectura
+                    //alert('Could not read file');
+                    showAlert('Could not read file')
+                    document.getElementById("accepted").style.display = "none";
+                    document.getElementById("showInfo").style.display = "block";
+                }
+            };
+            
+        }else{
+            //Este archivo se ha completado, se han cargado todos los fragmentos de bytes, establezca el estado en el div para completar
+            $upload.attr('data-status','complete');
+            
+            //Cambiar el nombre del archivo por el enlace del archivo adjunto cargado
+            $upload.find(".name").html('<a href="' + VIEW_URL + attachmentId + '" target="_blank">'+currentFile.name+'</a>');
+            
+            //Llame a checkForUploads para encontrar el siguiente div de carga que tenga data-status = "incomplete" e inicie el proceso de carga. 
+            checkForUploads();
+        }
+    }   
+    
+    </script> 
+    <script type="text/javascript">
+    formulario = document.getElementById('formulario');
+    inputs = document.querySelectorAll('#formulario input');
+    selects = document.querySelectorAll('#formulario select');
+    textareas = document.querySelectorAll('#formulario textarea');
+    var datosList = [];
+    expresiones = {
+        descripcion: /^.[a-zA-ZÀ-ÿ0-9_.,+-:;*="!#$%&?¡¿<>@|°¬\s\u00f1\u00d1\u00E0-\u00FC\(\)\'\{\}\[\]]{3,250}$/, // Letras, numeros, guion y guion_bajo
+        nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
+        codigoCorredor: /^.{4,12}$/, // 4 a 12 digitos.
+        motivo: /^(Renuncia|Estado|Devolución)/, // 4 a 12 digitos.
+        cuenta: /^(Cuenta|Chequera)/, // 4 a 12 digitos.
+        banco: /^(Banco|HSBC|Itaú|Scotiabank|JP|MUFG|China|Bank)/, // 4 a 12 digitos.
+        //asunto: /^.{4,40}$/, // 4 a 12 digitos.
+        nCuenta: /^\d{4,15}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^(\+569)([0-9]){8}$/ // 7 a 14 numeros.
+    }
+
+    campos = {
+    	nombre: false,
+    	rut: false,
+        codCo: false,
+        nomCo: false,
+        phone: false,
+        email: false,
+        //asunto: false,
+        nomPag: false,
+        rutPag: false,
+        nCuenta: false,
+        emailCon: false,
+        motivo: false,
+        tipoCu: false,
+        banco: false,
+        desc: false
+    }
+    validarFormulario = (e) => {
+    	console.log(e.target.name);
+        
+        switch (e.target.id) {
+        	case "nombre":
+        		validarCampo(expresiones.nombre, e.target, e.target.id);
+        	break;
+        	case "rut":
+        		validarRut(e.target, e.target.id);
+        	break;
+        	case "codCo":
+        		validarCampo(expresiones.codigoCorredor, e.target, e.target.id);
+        	break;
+        	case "nomCo":
+        		validarCampo(expresiones.nombre, e.target, e.target.id);
+        	break;
+        	case "phone":
+        		validarCampo(expresiones.telefono, e.target, e.target.id);
+        	break;
+        	case "email":
+        		validarCampo(expresiones.correo, e.target, e.target.id);
+        	break;
+        	/*case "asunto":
+        		validarCampo(expresiones.asunto, e.target, e.target.id);
+        	break;*/
+        	case "nomPag":
+        		validarCampo(expresiones.nombre, e.target, e.target.id);
+        	break;
+        	case "rutPag":
+        		validarRut(e.target, e.target.id);
+        	break;
+        	case "nCuenta":
+        		validarCampo(expresiones.nCuenta, e.target, e.target.id);
+        	break;
+        	case "emailCon":
+        		validarCampo(expresiones.correo, e.target, e.target.id);
+        	break;        	
+        	case "motivo":
+        		validarCampo(expresiones.motivo, e.target, e.target.id);
+        	break;        	        	
+        	case "tipoCu":
+        		validarCampo(expresiones.cuenta, e.target, e.target.id);
+        	break;
+        	case "banco":
+        		validarCampo(expresiones.banco, e.target, e.target.id);
+        	break;
+        	case "desc":
+        		validarCampo(expresiones.descripcion, e.target, e.target.id);
+        		contarcaracteres(e.target.value);
+        	break;
+        	case "filesInput":
+        		addAttach(e.target.files);
+        	break;
+    	}
+    }
+    
+    function addAttach (newDat){
+    	datosList.push(newDat);
+    
+    }
+    
+    validarCampo = (expresion, input, campo) => {
+    	if(expresion.test(input.value)){
+    		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+			document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+			document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+			document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+			document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+            campos[campo] = true;
+    	} else {
+        	document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+			document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+			document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+			document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+			document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+            campos[campo] = false;
+        }
+    
+    
+    }
+    
+    validarRut = (input, campo) => {
+       if(rut(input.value)){
+            document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+    	    document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		    document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+    	    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+            campos[campo] = true;
+        } else {
+            document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+			document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+			document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+			document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+			document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+            campos[campo] = false;
+        
+        }
+    
+    }
+    /* valida parámetros del query string */
+    if(document.querySelector('#nombre') && document.querySelector('#nombre').value) {
+        validarCampo(expresiones.nombre, document.querySelector('#nombre'), 'nombre')
+    }
+    if(document.querySelector('#rut') && document.querySelector('#rut').value){
+        validarRut(document.querySelector('#rut'), 'rut');
+    }
+    if(document.querySelector('#phone') && document.querySelector('#phone').value) {
+        validarCampo(expresiones.telefono, document.querySelector('#phone'), 'phone')
+    }
+    if(document.querySelector('#email') && document.querySelector('#email').value) {
+        validarCampo(expresiones.correo, document.querySelector('#email'), 'email')
+    }
+    if(document.querySelector('#nomPag') && document.querySelector('#nomPag').value) {
+        validarCampo(expresiones.nombre, document.querySelector('#nomPag'), 'nomPag')
+    }
+    if(document.querySelector('#rutPag') && document.querySelector('#rutPag').value) {
+        validarRut(document.querySelector('#rutPag'), 'rutPag');
+    }
+    /**/
+    
+    function rut(idRut){
+    	if(idRut.toString().trim() != '' && idRut.toString().indexOf('-') > 0){
+        	var caracteres = new Array();
+            var serie = new Array(2, 3, 4, 5, 6, 7);
+            var dig = idRut.toString().substr(idRut.toString().length - 1, 1);
+            idRut = idRut.toString().substr(0, idRut.toString().length - 2);
+            
+            for (var i = 0; i < idRut.length; i++) {
+            caracteres[i] = parseInt(idRut.charAt((idRut.length - (i + 1))));
+        	}
+            
+            var sumatoria = 0;
+            var k = 0;
+            var resto = 0;
+            
+             for (var j = 0; j < caracteres.length; j++) {
+            	if (k == 6) {
+                	k = 0;
+            	}
+            	sumatoria += parseInt(caracteres[j]) * parseInt(serie[k]);
+            	k++;
+        	}
+            
+            resto = sumatoria % 11;
+            dv = 11 - resto;
+            if (dv == 10) {
+               dv = "K";
+            } else if (dv == 11) {
+               dv = 0;
+            }
+            
+            if (dv.toString().trim().toUpperCase() == dig.toString().trim().toUpperCase()){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }else{
+        	return false;
+        }
+    
+    
+    }
+    inputs.forEach((input) => {
+		input.addEventListener('keyup', validarFormulario);
+        input.addEventListener('blur', validarFormulario);
+	
+	});
+    selects.forEach((select) => {
+         select.addEventListener('blur', validarFormulario);   
+            
+    });
+    textareas.forEach((textarea) => {
+         textarea.addEventListener('blur', validarFormulario);
+         textarea.addEventListener('keyup', validarFormulario);
+    })
+    formulario.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+        if(campos.nombre && campos.phone && campos.email /*&& campos.asunto*/ && campos.nomPag && campos.nCuenta && campos.emailCon && campos.motivo && campos.tipoCu && campos.banco && campos.desc && campos.rutPag && campos.rut){
+        //alert('Completado');
+        	document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+        	setTimeout(() => {
+			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+			}, 5000);
+        	prepareFileUploads();
+        }else {
+        	document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+        	setTimeout(() => {
+			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+			}, 5000)
+        }
+		                
+	});
+    
+    </script>
+	<apex:includeScript value="{! $Resource.contarCaracteres }"/>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>	
+                    
+                    
+                    
+                    
+          
+        
+        
+        
+    
+</apex:page>

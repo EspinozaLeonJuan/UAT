@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para permitir a los usuarios Crear, Editar y Enviar correos electrónicos de lista.
+
+Requiere estos permisos:
+* Mass Email
+* Edit Tasks
+* Send Email
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Allow sending of List Emails</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailMass</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ListEmailSend</name>
+    </userPermissions>
+</PermissionSet>

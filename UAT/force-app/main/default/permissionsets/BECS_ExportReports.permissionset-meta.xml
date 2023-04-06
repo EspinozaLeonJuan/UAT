@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Exportar detalles y Vista imprimible para exportar informes. 
+
+Requiere este permiso: 
+* Run Reports: Otorga permisos para Ejecutar informes y paneles.  
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Export Reports</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
+    </userPermissions>
+</PermissionSet>

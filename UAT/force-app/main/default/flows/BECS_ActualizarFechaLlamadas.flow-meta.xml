@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <description>Comprueba que el Record Type != Nulo Y el Record Type = &apos;HDI4I_Oportunidad_venta_seguro_automovil&apos;.</description>
+        <name>BECS_CheckRecordType</name>
+        <label>Check Record Type</label>
+        <locationX>182</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BECS_Oportunidad_venta_seguro_automovil</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HDI4I_Oportunidad_venta_seguro_automovil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_UpdateFecha</targetReference>
+            </connector>
+            <label>Oportunidad Venta Seguro Automóvil</label>
+        </rules>
+    </decisions>
+    <description>Flujo para actualizar las fechas de llamadas que se consumen desde el dataloader.</description>
+    <formulas>
+        <name>CampoPrimeraLLamada</name>
+        <dataType>String</dataType>
+        <expression>IF(!ISBLANK({!$Record.BECS_FechaHoraPrimerLlamadaFH__c}), Text(DATEVALUE({!$Record.BECS_FechaHoraPrimerLlamadaFH__c})) + &apos; &apos; + RIGHT({!PrimeraLlamada},5) + &apos;:&apos; + SUBSTITUTE(RIGHT(Text(DATETIMEVALUE({!$Record.BECS_FechaHoraPrimerLlamadaFH__c})),3), &apos;Z&apos;, &apos;&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>CampoUltimaLlamada</name>
+        <dataType>String</dataType>
+        <expression>IF(!ISBLANK({!$Record.BECS_FechaHoraUltimaLlamadaFH__c}), Text(DATEVALUE({!$Record.BECS_FechaHoraUltimaLlamadaFH__c})) + &apos; &apos; + RIGHT({!UltimaLLamada},5) + &apos;:&apos; + SUBSTITUTE(RIGHT(Text(DATETIMEVALUE({!$Record.BECS_FechaHoraUltimaLlamadaFH__c})),3), &apos;Z&apos;, &apos;&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <interviewLabel>BECS_ActualizarFechaLlamadas {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_ActualizarFechaLlamadas</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Actualiza la fecha de la primera y última llamada.</description>
+        <name>BECS_UpdateFecha</name>
+        <label>Update Fecha</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>BECS_FechaHoraPrimerLlamadaOLD__c</field>
+            <value>
+                <elementReference>CampoPrimeraLLamada</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_FechaHoraUltimaLlamadaOLD__c</field>
+            <value>
+                <elementReference>CampoUltimaLlamada</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckRecordType</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>BECS_FechaHoraPrimerLlamadaFH__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>BECS_FechaHoraUltimaLlamadaFH__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>PrimeraLlamada</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.BECS_FechaHoraPrimerLlamadaFH__c}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>UltimaLLamada</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.BECS_FechaHoraUltimaLlamadaFH__c}</text>
+    </textTemplates>
+</Flow>

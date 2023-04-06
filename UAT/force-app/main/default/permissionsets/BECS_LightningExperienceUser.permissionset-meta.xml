@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para acceder a Lightning Experience y cambiar entre Lightning Experience y Salesforce Classic.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Lightning Experience User</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
+    </userPermissions>
+</PermissionSet>

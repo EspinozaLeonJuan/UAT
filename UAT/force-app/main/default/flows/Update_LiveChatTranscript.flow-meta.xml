@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <description>Guarda la última categoría del bot seleccionada</description>
+    <interviewLabel>Update LiveChatTranscript {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update LiveChatTranscript</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_LiveChatTranscript</name>
+        <label>Get LiveChatTranscript</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_LiveChatTranscript</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Routable_Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LiveChatTranscript</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Para guardar la última categoría del Bot</description>
+        <name>Update_LiveChatTranscript</name>
+        <label>Update LiveChatTranscript</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_LiveChatTranscript.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>HDI_UltimaCategoriaBOT__c</field>
+            <value>
+                <elementReference>UltimaCategoriaBot</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LiveChatTranscript</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_LiveChatTranscript</targetReference>
+        </connector>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>Routable_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>UltimaCategoriaBot</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

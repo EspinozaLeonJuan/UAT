@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Asigna Casos Clientes</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>jorge.malfanti@hdi.cl</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Post venta</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Devolución</value>
+            </criteriaItems>
+            <template>unfiled$public/SERVICIO_Notifica_al_Colaborador_que_el_caso_le_ha_sido_Asignado</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Siniestro</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Chatcenter</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

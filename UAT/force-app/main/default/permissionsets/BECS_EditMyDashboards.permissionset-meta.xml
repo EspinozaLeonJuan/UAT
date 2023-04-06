@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Editar, Mover, Guardar y Eliminar los paneles propios del usuario en carpetas compartidas.
+
+Requiere este permiso: Create and Customize Dashboards: Crear, Editar y Eliminar tableros en carpetas personales. 
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Edit My Dashboards</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateCustomizeDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditMyDashboards</name>
+    </userPermissions>
+</PermissionSet>

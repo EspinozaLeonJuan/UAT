@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>BECS_CallCentersExternosPL</layout>
+        <sections>
+            <label></label>
+            <section>GESTIÓN DE AUTOMATIZACIONES</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN ADICIONAL DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN BANCARIA DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE CONTACTABILIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE LA MATERIA ASEGURADA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE ORIGEN DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE PÓLIZA DE SEGURO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE TRANSACCIÓN (Montos) DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL CLIENTE</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL DUEÑO DEL VEHÍCULO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL PRODUCTO DE INTERÉS</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL SISTEMA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DE LA OPORTUNIDAD</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BECS_OportunidadVentaSeguroAutomovilPL</layout>
+        <sections>
+            <label></label>
+            <section>GESTIÓN DE AUTOMATIZACIONES</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN ADICIONAL DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN BANCARIA DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE CONTACTABILIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE LA MATERIA ASEGURADA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE ORIGEN DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE PÓLIZA DE SEGURO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE TRANSACCIÓN (Montos) DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL CLIENTE</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL DUEÑO DEL VEHÍCULO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL PRODUCTO DE INTERÉS</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL SISTEMA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DE LA OPORTUNIDAD</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Oportunidad Instant Call</layout>
+        <sections>
+            <label></label>
+            <section>GESTIÓN DE AUTOMATIZACIONES</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN ADICIONAL DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN BANCARIA DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE LA MATERIA ASEGURADA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE MONTOS DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE ORIGEN DE LA OPORTUNIDAD</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL ASEGURADO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL CLIENTE</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL CONTRATANTE</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL PAGADOR</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL PRODUCTO DE INTERÉS</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DEL SISTEMA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DE LA OPORTUNIDAD</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>BECS_Llamada</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>HDI4I_Actualiza_propietario</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Llamada</name>
+    </quickActions>
+</CustomObjectTranslation>

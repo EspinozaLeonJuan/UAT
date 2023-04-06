@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos de Creación, Lectura, Edición y Borrado sobre el objeto y los campos.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HDI4I_Marca__c.HDI4I_Codigo_de_la_marca__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Marca CRED</label>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>HDI4I_Marca__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <tabSettings>
+        <tab>HDI4I_Marca__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

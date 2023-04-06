@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>jean.droguett@gocode.cl</contactEmail>
+    <contactPhone>961583540</contactPhone>
+    <label>CallWebService</label>
+    <oauthConfig>
+        <callbackUrl>https://</callbackUrl>
+        <certificate>MIICtjCCAh+gAwIBAgIUDCjMoorXbSwhRDdote0wQLT602swDQYJKoZIhvcNAQELBQAwbTELMAkGA1UEBhMCQ0wxFjAUBgNVBAgMDU1ldHJvcG9saXRhbmExETAPBgNVBAcMCFNhbnRpYWdvMQswCQYDVQQKDAJJVDEmMCQGCSqGSIb3DQEJARYXamVhbi5kcm9ndWV0dEBnb2NvZGUuY2wwHhcNMjEwNjE4MTI1MDEzWhcNMzEwNjE2MTI1MDEzWjBtMQswCQYDVQQGEwJDTDEWMBQGA1UECAwNTWV0cm9wb2xpdGFuYTERMA8GA1UEBwwIU2FudGlhZ28xCzAJBgNVBAoMAklUMSYwJAYJKoZIhvcNAQkBFhdqZWFuLmRyb2d1ZXR0QGdvY29kZS5jbDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzSqd2fmSrcccJxtiNp0JMtcabcslQexTNEegtBGU3NDlw3wJnmoaZJyK6PzvCcZwOnZMfwq2QjvEDpjMOpEg12aY+7CYaR8Qdv6BAMOZpRihMEp7/ecZ+s6cW4NWgxP4c4EO/8RBAr9SQJKBrciRwHAj+ywg+RsT16Z8oVv/x/0CAwEAAaNTMFEwHQYDVR0OBBYEFPPH+a4pOUoZPVgwEU8xwHUJ1h0qMB8GA1UdIwQYMBaAFPPH+a4pOUoZPVgwEU8xwHUJ1h0qMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADgYEAI8OHXEOF/8LpDTs4+PnwOmqrIL7g6y8/wa99NVgZTekkBwRfnFRB+Wri1HckjN0L1QvaMpHkJZ6PVyqIT2yhOiVjl2PqQb95W5ZWSN90MTgQSIqX/xiUTwMB1TbwVUQPy2QEpG8p15YuUBofOMyKosl/QQYLEYPcl2Ka15zPqNQ=</certificate>
+        <consumerKey>3MVG9oZtFCVWuSwOvwwAVjUooDeHys.gkJLCuXB7Ouy0fwu6A46o5sbBg2vGLMaQVVOtcYk7bdNVP3DcOr6Vl</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>BYPASS</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <profileName>Administrador del sistema</profileName>
+</ConnectedApp>

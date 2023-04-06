@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para enviar emails de usuarios finales no comerciales a contactos, clientes potenciales y cuentas personales que optaron por no recibir correo electrónico o que eligieron No comercializar en los registros de privacidad de datos.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Send Non-Commercial Email</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>TransactionalEmailSend</name>
+    </userPermissions>
+</PermissionSet>

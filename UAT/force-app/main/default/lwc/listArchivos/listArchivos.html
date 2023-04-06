@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+                Todos los Archivos
+        </h3>
+
+        <template if:true={listArchivos}>
+                <lightning-datatable key-field="id" 
+                        data={listArchivos} 
+                        columns={columns}
+                        hide-checkbox-column= true>
+                </lightning-datatable>
+        </template>
+
+    </lightning-card>
+
+</template>

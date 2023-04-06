@@ -1,0 +1,48 @@
+<apex:page standardController="Opportunity" extensions="HDI4I_OpportunityUrlController" action="{!updateOpp}">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+    <html>
+        <body >
+            <div id="spinner" >
+                <div class="spinner-border text-success" role="status" >
+                    <span class="visually-hidden">Redirigiendo a Cotizador Dealer...</span>
+                </div>
+                <h4>Redirigiendo a Cotizador Dealer...</h4>
+            </div>   
+            <div id="msj" hidden='true'> 
+                <h5>{!mensaje} </h5>
+            </div>
+
+            
+        </body>
+
+        <script type="text/javascript">
+        window.onload=function()
+        {
+
+            console.log('Entrando');
+            let timer = setTimeout(() => {
+                let b = "{!url}"
+                let a = "{!mensaje}"
+                console.log('URL'+b);
+                console.log('MSJ'+a);
+                if (!b == '') {
+                    console.log('esconder');
+
+
+                    history.back()
+                    window.open(b,'_blank',"width=1000, height=1070, scrollbars=yes, status=yes, location=yes");
+                } else {                    
+                    document.getElementById("spinner").hidden = true;
+                    document.getElementById("msj").hidden = false;}
+            }, 5000);
+
+            
+
+        };
+            
+        </script>
+
+    </html>
+</apex:page>

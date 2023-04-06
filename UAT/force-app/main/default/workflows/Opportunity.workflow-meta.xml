@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>HDI4I_Establece_true_asignacion</fullName>
+        <description>Actualización que permite establecer un True cuando el registro debe ser asignado</description>
+        <field>HDI4I_Debe_asignar__c</field>
+        <literalValue>1</literalValue>
+        <name>Establece True para asignación</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OPORTUNIDAD_Actualiza_true_nombre</fullName>
+        <description>Actualización de campo que permite marcar true cuando se ha actualizado el nombre del asegurado y apellido paterno del asegurado.</description>
+        <field>HDI4I_Debe_actualizar_nombre__c</field>
+        <literalValue>1</literalValue>
+        <name>OPORTUNIDAD: Actualiza true para nombre</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Establece %22true%22 para actualizar nombre</fullName>
+        <actions>
+            <name>OPORTUNIDAD_Actualiza_true_nombre</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.HDI4I_Nombres_asegurado__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.HDI4I_Apellido_paterno_asegurado__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Regla que  permite establecer un true en el campo HDI4I_Debe_actualizar_nombre</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

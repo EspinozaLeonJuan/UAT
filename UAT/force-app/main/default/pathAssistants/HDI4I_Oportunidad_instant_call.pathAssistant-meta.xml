@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Oportunidad Instant Call</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>BECS_EstadoInspeccion__c</fieldNames>
+        <picklistValueName>Inspección</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>HDI4I_Oportunidad_venta_seguro_automovil</recordTypeName>
+</PathAssistant>

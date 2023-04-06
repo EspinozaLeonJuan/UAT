@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para que los usuarios envíen sus correos electrónicos a través del servicio de correo electrónico externo configurado para la organización, como Gmail u Office 365.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Send Email through External Email Service</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SendExternalEmailAvailable</name>
+    </userPermissions>
+</PermissionSet>

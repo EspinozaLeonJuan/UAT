@@ -1,0 +1,60 @@
+<apex:page controller="MyController" tabStyle="User" standardStyleSheets="false">
+    
+    <apex:stylesheet value="{! $Resource.logcss}"/>
+    
+    <apex:form styleClass="formulario">
+        <apex:pageBlock >
+            
+            <apex:outputPanel id="thePanel" layout="block" styleClass="toggle-btn">
+                <apex:inputCheckbox value="{!account.HDI4I_on_off__c }" id="theCheckbox" styleClass="hh"/>
+                <label class="lbl" for="j_id0:j_id2:j_id3:theCheckbox" ></label>
+                <label class="lbl2" for="j_id0:j_id1:j_id2:j_id4" id='estado'></label> 
+                
+            </apex:outputPanel>
+            
+            
+            <apex:actionFunction name="enviar" action="{!save}"/>
+        </apex:pageBlock>
+    </apex:form>
+    <script language="JavaScript">
+        let check = {!$User.HDI4I_on_off__c };
+    
+    	inputs = document.getElementById('j_id0:j_id2:j_id3:theCheckbox');	
+    
+        if(check == true){
+            
+            let estado = document.getElementById('estado').innerHTML = 'Conectado';
+        }else{
+            
+            let estado = document.getElementById('estado').innerHTML = 'Desconectado';
+        }
+    	function activar(){
+            if(check == false){
+            	inputs.checked = true;
+            	enviar();
+            }
+            
+        }
+        setTimeout(activar,1000);
+    
+    </Script>
+    <script type="text/javascript">
+        formulario = document.getElementById('j_id0:j_id1');
+        inputs = document.getElementById('j_id0:j_id2:j_id3:theCheckbox');
+        
+    
+        inputs.addEventListener('change', function() {
+            if (this.checked) {
+                console.log("Checkbox is checked..");
+                let estado = document.getElementById('estado').innerHTML = 'Conectado';
+                enviar();
+            } else {
+                console.log("Checkbox is not checked..");
+                let estado = document.getElementById('estado').innerHTML = 'Desconectado';
+                enviar();
+            }
+            });
+    
+        
+    </script>
+</apex:page>

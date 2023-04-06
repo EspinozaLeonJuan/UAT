@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>BECS_Contact(Business)Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BECS_Contact(Individual)Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Detalle_de_contacto</name>
+    </quickActions>
+</CustomObjectTranslation>

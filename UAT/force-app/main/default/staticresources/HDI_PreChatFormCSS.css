@@ -1,0 +1,27 @@
+.text-align .slds-form-element__help {
+    
+}
+
+input {
+  border: 1px solid green; /* borde verde de 1px */
+  width: 80%; /* ancho del 80% */
+  height: 23px;
+  border-radius: 3px;
+}
+
+abbr {
+  display: none;
+}
+
+label {
+  font: bold 1rem;
+}
+
+#help-message-9,
+#help-message-10,
+#help-message-11,
+#help-message-12,
+#help-message-13
+{
+  display: none;
+}

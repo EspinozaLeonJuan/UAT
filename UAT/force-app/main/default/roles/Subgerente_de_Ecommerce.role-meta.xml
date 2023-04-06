@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Subgerente de Ecommerce</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Subgerente de Ecommerce</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Gerente_Corporativo_de_Operaciones_y_Clientes</parentRole>
+</Role>

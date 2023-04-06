@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <interviewLabel>FLOW {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FLOW INST-CALL F2: Actualiza asignado en envío de correo</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>HDI4I_Obtiene_oportunidad</name>
+        <label>OBTIENE OPORTUNIDAD</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HDI4I_Actualiza_tarea</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>HDI4I_Obtiene_tarea.WhatId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>HDI4I_Obtiene_tarea</name>
+        <label>OBTIENE TAREA</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HDI4I_Obtiene_oportunidad</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Email: Cotización Seguro de Vehículo</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>HDI4I_Actualiza_tarea</name>
+        <label>ACTUALIZA TAREA</label>
+        <locationX>176</locationX>
+        <locationY>575</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>HDI4I_Obtiene_oportunidad.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>HDI4I_Obtiene_tarea</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Email: Cotización Seguro de Vehículo</stringValue>
+            </value>
+        </filters>
+        <object>Task</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

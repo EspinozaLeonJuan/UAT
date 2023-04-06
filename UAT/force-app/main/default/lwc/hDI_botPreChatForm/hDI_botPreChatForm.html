@@ -1,0 +1,23 @@
+<template>
+    <header><img src="https://raw.githubusercontent.com/BernardoLiraBlueClip/hdi-cc/main/boton-invitacion-chat.png" alt="Header-Contacto" border="0" style="max-width: 100%; height: auto;"></header>
+    <div if:true={hasFields}>
+        <div>
+            <div class="slds-form-element">
+                <template for:each={fields} for:item="field" class="gridF" >
+                    <div key={field.name} class="gridH">
+                        <lightning-input name={field.name} type={field.type} label={field.label} variant="label-hidden"
+                           value={field.value} required={field.required} class="input-style" style="margin-top: 13px;">
+                        </lightning-input>
+                    </div>
+                </template>
+            </div>
+            <span style="color:red;">{errores}</span>
+        </div>
+        <div class="buttonWrapper embeddedServiceSidebarForm">
+            <button type="button" style="background-color: green;" onclick={handleStartChat}
+                class="slds-button slds-button--neutral startButton uiButton--default uiButton embeddedServiceSidebarButton">
+                <span class="label bBody">{startChatLabel}</span>
+            </button>
+        </div>
+    </div>
+</template>

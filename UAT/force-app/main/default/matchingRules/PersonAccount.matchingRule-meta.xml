@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <matchingRules>
+        <fullName>HDI4I_Regla_coincidencia_cuenta_estandar</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <description>Permite identificar las cuentas duplicadas.</description>
+        <label>Regla de coincidencia de cuenta estándar</label>
+        <matchingRuleItems>
+            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
+            <fieldName>HDI4I_RUT_del_cliente__c</fieldName>
+            <matchingMethod>Exact</matchingMethod>
+        </matchingRuleItems>
+        <matchingRuleItems>
+            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
+            <fieldName>HDI4I_Digito_verificador_rut_cliente__c</fieldName>
+            <matchingMethod>Exact</matchingMethod>
+        </matchingRuleItems>
+        <ruleStatus>Active</ruleStatus>
+    </matchingRules>
+</MatchingRules>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Crear vistas de lista, Modificar y Eliminar vistas de listas propias.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Create and Customize List Views</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateCustomizeFilters</name>
+    </userPermissions>
+</PermissionSet>

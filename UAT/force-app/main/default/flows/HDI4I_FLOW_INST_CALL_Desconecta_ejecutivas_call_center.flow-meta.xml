@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <interviewLabel>FLOW INST-CALL: Desconecta ejecutivas call center {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>FLOW INST-CALL: Desconecta ejecutivas call center</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>HDI4I_Desconecta_ejecutivas</name>
+        <label>DESCONECTA EJECUTIVAS</label>
+        <locationX>176</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>HDI4I_on_off__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>HDI4I_Desconecta_ejecutivas</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>HDI4I_on_off__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2021-07-01</startDate>
+            <startTime>22:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Ver y Acceder a paneles en carpetas públicas, que no incluyen las carpetas personales de otros.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - View Dashboards in Public Folders</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPublicDashboards</name>
+    </userPermissions>
+</PermissionSet>

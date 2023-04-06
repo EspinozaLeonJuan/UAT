@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <description>Comprueba que el Record Type != null y si el Record Type = Insurance Policy, Datos Bancarios u Other Record Types.</description>
+        <name>BECS_CheckRecordType</name>
+        <label>Check Record Type</label>
+        <locationX>314</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Other Record Types</defaultConnectorLabel>
+        <rules>
+            <name>BECS_InsurancePolicy</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>InsurancePolicy</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_NameInsurancePolice</targetReference>
+            </connector>
+            <label>Insurance Policy</label>
+        </rules>
+        <rules>
+            <name>BECS_DatosBancarios</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>BECS_DatosBancarios</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_NameDatoBancario</targetReference>
+            </connector>
+            <label>Datos Bancarios</label>
+        </rules>
+    </decisions>
+    <description>Se ejecuta el Flow ANTES de guardar el registro de Financial Account:
+0) Comprueba que el Record Type != null para el registro.
+1) Comprueba el Record Type del registro.
+2) Actualiza el Name del Insurance Police con el HDI4I_RUT_del_cliente__c - BECS_ProductoSeleccionado__c.
+3) Actualiza el Name del Dato Bancario con el HDI4I_RUT_del_cliente__c - BECS_Numerodetarjeta__c.</description>
+    <environments>Default</environments>
+    <interviewLabel>BECS_FinancialAccount - Flow Before {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_FinancialAccount - Flow Before</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Actualiza el Name del Dato Bancario con el HDI4I_RUT_del_cliente__c - BECS_Numerodetarjeta__c.</description>
+        <name>BECS_NameDatoBancario</name>
+        <label>Name Dato Bancario</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>{!$Record.FinServ__PrimaryOwner__r.HDI4I_RUT_del_cliente__c} - {!$Record.BECS_Numerodetarjeta__c}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Actualiza el Name del Insurance Police con el HDI4I_RUT_del_cliente__c - BECS_ProductoSeleccionado__c.</description>
+        <name>BECS_NameInsurancePolice</name>
+        <label>Name Insurance Police</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>{!$Record.FinServ__PrimaryOwner__r.HDI4I_RUT_del_cliente__c} - {!$Record.BECS_NumeroPolizaCotizador__c}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckRecordType</targetReference>
+        </connector>
+        <object>FinServ__FinancialAccount__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

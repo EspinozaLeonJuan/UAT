@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <description>Comprueba si Fecha Hora Última Llamada de la Oportunidad relacionada es Null</description>
+        <name>BECS_CheckFechaHoraUltimaLlamada</name>
+        <label>Check Fecha Hora Última Llamada</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>BECS_ActualizaOportunidadNoNula</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is not Null</defaultConnectorLabel>
+        <rules>
+            <name>BECS_FechaHoraUltimaLlamadaIsNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_GetOpportunityRelated.BECS_FechaHoraUltimaLlamadaFH__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_ActualizaOportunidadNula</targetReference>
+            </connector>
+            <label>Is Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba si el Record ha sido Creado o Actualizado.</description>
+        <name>BECS_CheckIsCreated</name>
+        <label>Check Is Created</label>
+        <locationX>809</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Is Updated</defaultConnectorLabel>
+        <rules>
+            <name>BECS_IsCreated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_GetOpportunityRelated</targetReference>
+            </connector>
+            <label>Is Created</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba el Asunto de la tarea.</description>
+        <name>BECS_CheckSubject</name>
+        <label>Check Subject</label>
+        <locationX>512</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>Otros Subjects</defaultConnectorLabel>
+        <rules>
+            <name>BECS_EsLlamada</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Subject</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>Llamada</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckFechaHoraUltimaLlamada</targetReference>
+            </connector>
+            <label>Es Llamada</label>
+        </rules>
+        <rules>
+            <name>BECS_EsEmail</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Subject</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Cotización Seguro de Vehículo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_ActualizaOwnerTask</targetReference>
+            </connector>
+            <label>Es Email</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Comprueba si el record es nuevo</description>
+        <name>BECS_IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>BECS_Now</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>BECS_NowFecha</name>
+        <dataType>Date</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>BECS_NowFechaYHora</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>BECS_TaskFlowAfter {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_TaskFlowAfter</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Busca el Related To de los registros de Oportunidad</description>
+        <name>BECS_GetOpportunityRelated</name>
+        <label>GET Opportunity Related</label>
+        <locationX>512</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>BECS_CheckSubject</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhatId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Actualiza los campos de Oportunidad con Fecha Hora Última Llamada distinto de Null</description>
+        <name>BECS_ActualizaOportunidadNoNula</name>
+        <label>Actualiza Oportunidad No Nula</label>
+        <locationX>314</locationX>
+        <locationY>815</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BECS_GetOpportunityRelated.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BECS_ComentariosLlamada__c</field>
+            <value>
+                <elementReference>$Record.Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_FechaHoraUltimaLlamadaFH__c</field>
+            <value>
+                <elementReference>BECS_NowFechaYHora</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_Intento__c</field>
+            <value>
+                <elementReference>$Record.BECS_Intento__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_TipoContacto__c</field>
+            <value>
+                <elementReference>$Record.BECS_TipoContacto__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Actualiza la Oportunidad relacionada con la Task, si la Fecha Hora Última Llamada es Null.</description>
+        <name>BECS_ActualizaOportunidadNula</name>
+        <label>Actualiza Oportunidad Nula</label>
+        <locationX>50</locationX>
+        <locationY>815</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BECS_GetOpportunityRelated.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BECS_ComentariosLlamada__c</field>
+            <value>
+                <elementReference>$Record.Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_FechaHoraPrimerLlamadaFH__c</field>
+            <value>
+                <elementReference>BECS_NowFechaYHora</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_FechaHoraUltimaLlamadaFH__c</field>
+            <value>
+                <elementReference>BECS_NowFechaYHora</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_FechadeAsignacion__c</field>
+            <value>
+                <elementReference>BECS_NowFecha</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_Intento__c</field>
+            <value>
+                <elementReference>$Record.BECS_Intento__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BECS_TipoContacto__c</field>
+            <value>
+                <elementReference>$Record.BECS_TipoContacto__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Actualiza el Owner de Task en base al de la Oportunidad relacionada.</description>
+        <name>BECS_ActualizaOwnerTask</name>
+        <label>Actualiza Owner Task</label>
+        <locationX>578</locationX>
+        <locationY>695</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>BECS_GetOpportunityRelated.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>683</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckIsCreated</targetReference>
+        </connector>
+        <object>Task</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

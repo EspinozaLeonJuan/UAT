@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>23</activeVersionNumber>
+    <description>Envía mensajes cuando se pasa a Offline y cuando se finaliza manualmente la conversación, también envía el correo de respaldo de la conversación.</description>
+    <masterLabel>MessagingSession MensajesFinalización</masterLabel>
+</FlowDefinition>

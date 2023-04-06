@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CorreoPropuestaBCC</fullName>
+        <categories>Instant Call</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>CorreoPropuestaBCC</shortDescription>
+        <value>magallanes.seguros@gmail.com</value>
+    </labels>
+    <labels>
+        <fullName>HDI_SiniestroNoEncontrado</fullName>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>HDI_SiniestroNoEncontrado</shortDescription>
+        <value>Siniestro no encontrado</value>
+    </labels>
+    <labels>
+        <fullName>HDI_URLSites</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HDI_URLSites</shortDescription>
+        <value>hdiseguros.secure.force.com</value>
+    </labels>
+    <labels>
+        <fullName>HoraRounRobinOpportunidades</fullName>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>HoraRounRobinOpportunidades</shortDescription>
+        <value>11</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_AgentTransfer_BannerInProgressTransfer_04I3t000000CkLw_5722412</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_AgentTransfer_BannerInProgressTransfer_04I3t000000CkLw_5722412</shortDescription>
+        <value>Te estamos transfiriendo a un ejecutivo en línea.</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Body_AgentTypingUpdate_04I3t000000CkLw_4527934</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Body_AgentTypingUpdate_04I3t000000CkLw_4527934</shortDescription>
+        <value>El ejecutivo está escribiendo...</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Body_ChatWindowAgent_04I3t000000CkLw_2491862</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Body_ChatWindowAgent_04I3t000000CkLw_2491862</shortDescription>
+        <value>Ejecutivo</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Body_InputTextPlaceholder_04I3t000000CkLw_4611848</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Body_InputTextPlaceholder_04I3t000000CkLw_4611848</shortDescription>
+        <value>Escribe tu mensaje...</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_CloseConfirmation_ChatStateBody_04I3t000000CkLw_2562669</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_CloseConfirmation_ChatStateBody_04I3t000000CkLw_2562669</shortDescription>
+        <value>Puedes guardar la transcripción del chat después de finalizar la sesión. Haz clic en &quot;Guardar transcripción&quot; en la parte inferior de la ventana del chat.</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Ended_PostChatButton_04I3t000000CkLw_9591248</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Ended_PostChatButton_04I3t000000CkLw_9591248</shortDescription>
+        <value>Responder encuesta</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_FileTransfer_SelectNewFile_04I3t000000CkLw_5475294</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_FileTransfer_SelectNewFile_04I3t000000CkLw_5475294</shortDescription>
+        <value>Selecciona un archivo de menos de 5 MB</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_FileTransfer_UsePreviousElementToUploadFile_04I3t000000CkLw_8811589</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_FileTransfer_UsePreviousElementToUploadFile_04I3t000000CkLw_8811589</shortDescription>
+        <value>Transferencia solicitada. Pulsa el botón para cargar un archivo</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Reconnecting_ReconnectingChasitorIssue_04I3t000000CkLw_6440499</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Reconnecting_ReconnectingChasitorIssue_04I3t000000CkLw_6440499</shortDescription>
+        <value>Espera, estamos reconectando...</value>
+    </labels>
+    <labels>
+        <fullName>LA_Chat_Timeout_IdleTimeoutWarningQuestion_04I3t000000CkLw_9416612</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Chat_Timeout_IdleTimeoutWarningQuestion_04I3t000000CkLw_9416612</shortDescription>
+        <value>¿Sigues ahí?</value>
+    </labels>
+    <labels>
+        <fullName>LA_General_CloseSessionWarningBody_04I3t000000CkLw_4681598</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_General_CloseSessionWarningBody_04I3t000000CkLw_4681598</shortDescription>
+        <value>Si cierras, sales o actualizas la página, podrías perder el chat</value>
+    </labels>
+    <labels>
+        <fullName>LA_General_CloseSessionWarningTitle_04I3t000000CkLw_8914904</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_General_CloseSessionWarningTitle_04I3t000000CkLw_8914904</shortDescription>
+        <value>Ten cuidado...</value>
+    </labels>
+    <labels>
+        <fullName>LA_PostChat_Base_PostChat_04I3t000000CkLw_3842780</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_PostChat_Base_PostChat_04I3t000000CkLw_3842780</shortDescription>
+        <value>Encuesta de satisfacción</value>
+    </labels>
+    <labels>
+        <fullName>LA_PreChat_Base_StartChat_04I3t000000CkLw_2542008</fullName>
+        <categories>Snap-ins</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>LA_PreChat_Base_StartChat_04I3t000000CkLw_2542008</shortDescription>
+        <value>Conversa con un ejecutivo en línea</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Header_Text_04I3t000000CkLw_4182881</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Header_Text_04I3t000000CkLw_4182881</shortDescription>
+        <value>Conectando al chat...</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageSecondL_04I3t000000CkLw_1241752</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageSecondL_04I3t000000CkLw_1241752</shortDescription>
+        <value>Un ejecutivo está en camino.</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_WithoutQueuePos_WaitingMessage_04I3t000000CkLw_4679696</fullName>
+        <categories>Snap-ins</categories>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_WithoutQueuePos_WaitingMessage_04I3t000000CkLw_4679696</shortDescription>
+        <value>Gracias por contactarnos, en unos momentos te atenderemos...</value>
+    </labels>
+    <labels>
+        <fullName>SLAs_Siniestros</fullName>
+        <language>es_MX</language>
+        <protected>false</protected>
+        <shortDescription>SLAs Siniestros</shortDescription>
+        <value>SLAs Siniestros</value>
+    </labels>
+    <labels>
+        <fullName>StartChat</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StartChat</shortDescription>
+        <value>Empezar conversacion</value>
+    </labels>
+    <labels>
+        <fullName>fflib_QueryFactory_crossobject_fieldsets_not_allowed_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when selecting a cross-object fieldsset is not allowed and attempted.</shortDescription>
+        <value>Cross-object fields not allowed and field &quot;{0}&quot; is a cross-object field.</value>
+    </labels>
+    <labels>
+        <fullName>fflib_QueryFactory_fieldset_wrong_sobject_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error when selecting a field set for a different sobject type.</shortDescription>
+        <value>Field set &quot;{0}&quot; is not for SObject type &quot;{1}&quot;</value>
+    </labels>
+    <labels>
+        <fullName>fflib_QueryFactory_recursive_subquery_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Presented when attempting to nest subqueries.</shortDescription>
+        <value>Invalid call to subselectQuery.  You may not add a subselect query to a subselect query.</value>
+    </labels>
+    <labels>
+        <fullName>fflib_QueryFactory_subquery_invalid_relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Presented when attempting to create a subquery from an invalid relationship.</shortDescription>
+        <value>Invalid call to subselectQuery.  Invalid relationship for table.</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_field_not_insertable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_field_not_insertable</shortDescription>
+        <value>You do not have permission to insert field {1} on {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_field_not_readable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_field_not_readable</shortDescription>
+        <value>You do not have permission to read the field {1} on {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_field_not_updateable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_field_not_updateable</shortDescription>
+        <value>You do not have permission to update the field {1} on {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_object_not_deletable</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_object_not_deletable</shortDescription>
+        <value>You do not have permission to delete {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_object_not_insertable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_object_not_insertable</shortDescription>
+        <value>You do not have permission to insert {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_object_not_readable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_object_not_readable</shortDescription>
+        <value>You do not have permission to read {0}</value>
+    </labels>
+    <labels>
+        <fullName>fflib_security_error_object_not_updateable</fullName>
+        <categories>security,error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>fflib_security_error_object_not_updateable</shortDescription>
+        <value>You do not have permission to update {0}</value>
+    </labels>
+</CustomLabels>

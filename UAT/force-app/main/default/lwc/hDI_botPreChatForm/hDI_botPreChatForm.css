@@ -1,0 +1,80 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+ 
+lightning-button {
+    padding-top: 1em;
+}
+
+
+
+.embeddedServiceSidebarForm.formContent {
+    width: 100%;
+    height: 350px;
+    overflow-y: auto;
+    position: relative;
+    background-color: var(--lwc-esColorBackgroundInverse,#fff);
+    border-radius: 0 0 8px 8px;
+}
+ 
+.embeddedServiceSidebarForm.buttonWrapper {
+    text-align: center;
+    padding: 30px 24px 24px;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) calc(100% - 77px), rgba(255, 255, 255, 1) 100%);
+}
+ 
+.embeddedServiceSidebarButton {
+    position: relative;
+    border: none;
+    background: var(--lwc-colorBrand,#2574A9);
+    text-shadow: none;
+    box-shadow: none;
+    border-radius: 4px;
+    transition: background .4s ease;
+    color: var(--lwc-colorTextInverse,#FFFFFF);
+    font-size: var(--lwc-esFontSizeMedium,1em);
+    font-weight: var(--lwc-fontWeightRegular,400);
+    font-family: var(--lwc-fontFamily,Lato),sans-serif;
+    width: 100%;
+    margin: 0;
+    height: 44px;
+}
+
+/* Define el grid */
+.gridF {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  /* Define los estilos para los elementos */
+.gridH {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Ajusta la posición de los elementos */
+.gridH:nth-child(1) {
+    grid-row: 1;    
+}
+.gridH:nth-child(2) {
+    grid-row: 1;
+}
+
+.gridH:nth-child(3) {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+
+}
+
+.gridH:nth-child(4) {
+    grid-row: 4;
+    grid-column: 1 / span 2;
+}

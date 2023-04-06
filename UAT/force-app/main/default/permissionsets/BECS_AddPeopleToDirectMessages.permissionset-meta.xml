@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para permitir que un usuario agregue a otras personas a los mensajes directos en los que se encuentra el usuario.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Add People to Direct Messages</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AddDirectMessageMembers</name>
+    </userPermissions>
+</PermissionSet>

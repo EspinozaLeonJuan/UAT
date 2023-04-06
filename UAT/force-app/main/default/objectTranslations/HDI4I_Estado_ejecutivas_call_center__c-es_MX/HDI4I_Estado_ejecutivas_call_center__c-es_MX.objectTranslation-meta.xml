@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Estado Ejecutivas Call Center</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Estado Ejecutivas Call Center</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Formato Estado Ejecutivas Call Center</layout>
+        <sections>
+            <label></label>
+            <section>ASIGNACIÓN</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>ESTADO DE CONEXIÓN</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE SISTEMA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Vínculos personalizados</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

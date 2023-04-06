@@ -1,0 +1,28 @@
+<apex:page standardController="MessagingSession">
+     <apex:includeScript value="/support/console/53.0/integration.js"/>
+     <a href="#" onClick="testAcceptWork();return false;">Accept Assigned Work Item</a>
+
+     <script type="text/javascript">
+         function testAcceptWork() {
+             //First get the ID of the assigned work item to accept it
+             sforce.console.presence.getAgentWorks(function(result) {
+                 if (result.success) {
+                     var works = JSON.parse(result.works);
+                     var work = works[0];
+                     if (!work.isEngaged) {
+                         //Now that we have the assigned work item ID, we can accept it 
+                         sforce.console.presence.acceptAgentWork(work.workId, function(result) {
+                             if (result.success) {
+                                 alert('Accepted work successfully');
+                             } else {
+                                 alert('Accept work failed');
+                             }
+                         });
+                     } else {
+                         alert('The work item has already been accepted');
+                     }
+                 }
+             });
+         }
+     </script>
+</apex:page>

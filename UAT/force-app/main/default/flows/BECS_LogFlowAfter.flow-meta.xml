@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>BECS_EnviaCorreoReintentosMaximos</name>
+        <label>Envia Correo Reintentos Maximos</label>
+        <locationX>204</locationX>
+        <locationY>1127</locationY>
+        <actionName>ORG_IntegrationLogError__c.HDI_NotificaReintentosMaximos</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>BECS_EnviarNotificacionErrorIntegracion</name>
+        <label>Enviar Notificacion Error Integracion</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <actionName>ORG_IntegrationLogError__c.HDI_NotificarErroresIntegracion</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>BECS_CheckReintentosMaximos</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <description>Comprueba que el estado del log sea No procesado</description>
+        <name>BECS_CheckEsError</name>
+        <label>Check Es Error</label>
+        <locationX>182</locationX>
+        <locationY>575</locationY>
+        <defaultConnector>
+            <targetReference>BECS_CheckReintentosMaximos</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Otro</defaultConnectorLabel>
+        <rules>
+            <name>BECS_NoProcesado</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ORG_Estado__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No procesado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_EnviarNotificacionErrorIntegracion</targetReference>
+            </connector>
+            <label>No procesado</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>BECS_CheckIsNew</name>
+        <label>Check Is New</label>
+        <locationX>336</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>BECS_CheckReintentosMaximos</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Es update</defaultConnectorLabel>
+        <rules>
+            <name>BECS_EsNuevo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckEsError</targetReference>
+            </connector>
+            <label>Es nuevo</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba el Record Type</description>
+        <name>BECS_CheckRecordType</name>
+        <label>Check Record Type</label>
+        <locationX>534</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BECS_LogVentasSeguroAutomovilChecked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>BECS_LogVentasSeguroAutomovil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckIsNew</targetReference>
+            </connector>
+            <label>Log Ventas Seguro Automóvil</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que el numero de reintentos sea 5</description>
+        <name>BECS_CheckReintentosMaximos</name>
+        <label>Check Reintentos Máximos</label>
+        <locationX>336</locationX>
+        <locationY>1007</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BECS_ReintentosMaximos</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ORG_Reintentos__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_EnviaCorreoReintentosMaximos</targetReference>
+            </connector>
+            <label>Reintentos Maximos</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>BECS_IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>LOGS {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_LogFlowAfter</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>408</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckRecordType</targetReference>
+        </connector>
+        <object>ORG_IntegrationLogError__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

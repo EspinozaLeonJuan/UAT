@@ -1,0 +1,54 @@
+<apex:page controller="ControllerUrlOpportunity">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>
+<apex:stylesheet value="{! $Resource.HDI_css}"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>  
+    <html>
+        <head>
+            
+            <style>
+            
+            
+            </style>
+            <script language="JavaScript">
+                function Cerrar_Ventana()
+                {
+                var ventana=window.self;
+                ventana.opener=window.self;
+                ventana.close();
+                }
+            
+                function redireccionarPagina() {
+                    var url = "{!url}";
+                    var men = "{!mensaje}";
+                    console.log('entré aquí');
+                    console.log(url);
+                    if(url == ""){
+                        alert(men);
+                        Cerrar_Ventana()
+                    } else {
+                        window.open("{!url}", "_blank", "location=yes,height=1070,width=1000,scrollbars=yes,status=yes");
+                        Cerrar_Ventana();
+                        
+                    }
+                }
+            
+            </script>
+            
+            
+        </head>
+        <body onLoad="redireccionarPagina()">
+            <div class="justify-content-between align-items-center mt-lg-5 mb-4 mt-4" style="padding-left: 120px;">
+                <h2 class="titulo text-green font-weight-bold m-0">Redirigiendo a Cotizador Dealer </h2>
+                <div class="spinner-border carga" role="status"/>
+            </div>
+                <div class="d-flex flex-wrap justify-content-between align-items-center mt-lg-5 mb-4 mt-4" style="padding-left: 120px;">
+                <label class="text-secondary smallf pr-5 formulario__label">Por favor espere...</label>
+                
+            </div>
+                
+  
+
+            
+        </body>
+    </html>
+</apex:page>

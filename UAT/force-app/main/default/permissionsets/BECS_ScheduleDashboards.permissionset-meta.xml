@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Programar cuándo se actualizan los paneles y envíe notificaciones por correo electrónico que incluyan paneles actualizados en formato HTML.
+  
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Schedule Dashboards</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ScheduleJob</name>
+    </userPermissions>
+</PermissionSet>

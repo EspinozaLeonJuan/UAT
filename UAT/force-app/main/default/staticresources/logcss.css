@@ -1,0 +1,40 @@
+.lbl{
+    display: inline-block;
+    width: 65px;
+    height: 30px;
+    background: #979797;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
+}
+
+.lbl:after{
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: #eee;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: .2s;
+}
+
+.hh:checked + .lbl:after{
+  left: 36px;
+}
+.hh:checked + .lbl{
+  background: #006729;
+}
+
+.hh{
+  display: none;
+}
+
+.lbl2{
+  bottom: 10px;
+  left: 40px;
+  position: relative;
+}

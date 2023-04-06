@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Pre-Chat Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Nombre" name="nombre" value={nombre} onchange={handleChange} required></lightning-input>
+            <lightning-input label="Email" name="email" value={email} onchange={handleChange} required></lightning-input>
+            <lightning-input label="Teléfono" name="telefono" value={telefono} onchange={handleChange} required></lightning-input>
+            <lightning-button label="Enviar" variant="brand" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

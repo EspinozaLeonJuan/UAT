@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Crear, Editar y Eliminar tareas.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Edit Tasks</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
+    </userPermissions>
+</PermissionSet>

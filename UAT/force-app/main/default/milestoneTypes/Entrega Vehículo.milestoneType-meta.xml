@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MilestoneType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SLA que contempla el período transcurrido desde que se genera la orden de trabajo, hasta que se entrega el vehículo al cliente</description>
+    <recurrenceType>none</recurrenceType>
+</MilestoneType>

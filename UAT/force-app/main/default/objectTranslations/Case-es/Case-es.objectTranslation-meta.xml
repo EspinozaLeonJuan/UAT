@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Case Layout Dev Orig.</layout>
+        <sections>
+            <label></label>
+            <section>Datos bancarios para devolución</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Datos de control y prueba (Sacar del Formato)</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Detalle de Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud de devolución</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Caso Devoluciones</layout>
+        <sections>
+            <label></label>
+            <section>Datos bancarios para devolución</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Detalle de Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud de devolución</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Caso Siniestro</layout>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE APERTURA Y CIERRE DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE COMENTARIOS Y RELATO DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE FECHAS DE LA GESTIÓN DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE LA MATERIA ASEGURADA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE PARTICIPANTES DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DEL ASEGURADO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Vínculos personalizados</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Chatcenter</layout>
+        <sections>
+            <label></label>
+            <section>Descripción del Problema</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información adicional del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada en la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Respuesta a solicitud ingresada por Chatcenter</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Devoluciones Cerrado</layout>
+        <sections>
+            <label></label>
+            <section>Datos bancarios para devolución</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Detalle de Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud de devolución</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HDI_CasoSiniestro_SIN</layout>
+        <sections>
+            <label></label>
+            <section>A SACAR FORMATO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DATOS POLICIALES</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE APERTURA Y CIERRE DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE COMENTARIOS Y RELATO DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE FECHAS DE LA GESTIÓN DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE LA MATERIA ASEGURADA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE PARTICIPANTES DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PERSONAL DE SINIESTROS</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DEL ASEGURADO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DEL SINIESTRO</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Otros</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Vínculos personalizados</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Post venta Devoluciones</layout>
+        <sections>
+            <label></label>
+            <section>Datos bancarios para devolución</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Detalle de Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Resolución del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud de devolución</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Post venta Pérdida Total</layout>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información adicional del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Respuesta a solicitud de Pérdida Total</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud Pérdida Total</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Pérdida Total Cerrado</layout>
+        <sections>
+            <label></label>
+            <section>Identificación de cliente</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información adicional del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información de contactabilidad</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información gestión del caso</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Información ingresada por la Web</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Respuesta a solicitud de Pérdida Total</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Solicitud Pérdida Total</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>CasoSiniestro</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Detalle_del_Caso</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>SendEmail</name>
+    </quickActions>
+</CustomObjectTranslation>

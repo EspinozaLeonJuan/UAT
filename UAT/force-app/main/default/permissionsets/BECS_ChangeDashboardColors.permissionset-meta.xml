@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para elegir el tema y la paleta de colores del tablero.
+
+System Permissions</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Change Dashboard Colors</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChangeDashboardColors</name>
+    </userPermissions>
+</PermissionSet>

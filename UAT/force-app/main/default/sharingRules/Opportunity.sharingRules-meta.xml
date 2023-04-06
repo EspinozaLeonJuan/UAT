@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BECS_SubgerenteDeEcommerceVisibilidadOportunidadesEcommerce</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Comparte las Oportunidades con Record Type &quot;Oportunidad venta seguro automóvil&quot; o &quot;Call Centers Externos&quot; que son propiedad del usuario &quot;Consultor HDI&quot;, para que sean visualizadas por usuarios con Rol &quot;Subgerente de Ecommerce&quot;.</description>
+        <label>Subgerente de Ecommerce - Visibilidad Oportunidades Ecommerce</label>
+        <sharedTo>
+            <role>Subgerente_de_Ecommerce</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Oportunidad venta seguro automóvil,Call Centers Externos</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>HDI4I_Campana_cotizador_web__c</field>
+            <operation>notEqual</operation>
+            <value>Campaña Ejecutivo Banco Estado,Campaña VSV Banco Estado</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

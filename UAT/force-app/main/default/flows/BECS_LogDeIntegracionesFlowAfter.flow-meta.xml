@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>BECS_EnviaCorreoReintentosMaximos</name>
+        <label>Envia Correo Reintentos Maximos</label>
+        <locationX>248</locationX>
+        <locationY>575</locationY>
+        <actionName>ORG_IntegrationLogError__c.HDI_NotificaReintentosMaximos</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>BECS_CheckIsNew</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>BECS_EnviarNotificacionErrorIntegracion</name>
+        <label>Enviar Notificacion Error Integracion</label>
+        <locationX>50</locationX>
+        <locationY>1031</locationY>
+        <actionName>ORG_IntegrationLogError__c.HDI_NotificarErroresIntegracion</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <description>Comprueba que el estado del log sea No procesado</description>
+        <name>BECS_CheckIsError</name>
+        <label>Check Is Error</label>
+        <locationX>182</locationX>
+        <locationY>911</locationY>
+        <defaultConnectorLabel>Otro Estado</defaultConnectorLabel>
+        <rules>
+            <name>BECS_NoProcesado</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ORG_Estado__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No procesado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_EnviarNotificacionErrorIntegracion</targetReference>
+            </connector>
+            <label>No procesado</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>BECS_CheckIsNew</name>
+        <label>Check Is New</label>
+        <locationX>380</locationX>
+        <locationY>791</locationY>
+        <defaultConnectorLabel>Es Update</defaultConnectorLabel>
+        <rules>
+            <name>BECS_EsNuevo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>BECS_IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckIsError</targetReference>
+            </connector>
+            <label>Es Nuevo</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba el Record Type</description>
+        <name>BECS_CheckRecordType</name>
+        <label>Check Record Type</label>
+        <locationX>611</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Other Record Types</defaultConnectorLabel>
+        <rules>
+            <name>BECS_LogVentasSeguroAutomovilChecked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>BECS_LogVentasSeguroAutomovil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_CheckReintentosMaximos</targetReference>
+            </connector>
+            <label>Log Ventas Seguro Automóvil</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Comprueba que el numero de reintentos sea 5</description>
+        <name>BECS_CheckReintentosMaximos</name>
+        <label>Check Reintentos Máximos</label>
+        <locationX>380</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>BECS_CheckIsNew</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Reintentos &lt; 5</defaultConnectorLabel>
+        <rules>
+            <name>BECS_Maximo5Reintentos</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ORG_Reintentos__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>BECS_EnviaCorreoReintentosMaximos</targetReference>
+            </connector>
+            <label>Máximo 5 Reintentos</label>
+        </rules>
+    </decisions>
+    <description>Se ejecuta el Flow DESPUÉS de guardar el registro de Log de integraciones:
+0) Comprueba que el Record Type != null para el registro.
+1) Comprueba el Record Type del registro.
+2) Comprueba que el numero de Reintentos sea 5 como máximo.
+2.1) Notifica cuando se guarde un registro con Reintentos = 5 (Error de Integración).
+3) Comprueba si el registro Is New o Is Updated.
+4) Comprueba que el Estado del registro sea No procesado.
+4.1) Notifica cuando se guarde un registro con Estado No procesado (Error de Integración).</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>BECS_IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>BECS_Log de integraciones - Flow After {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BECS_Log de integraciones - Flow After</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>485</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BECS_CheckRecordType</targetReference>
+        </connector>
+        <object>ORG_IntegrationLogError__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

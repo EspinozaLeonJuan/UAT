@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Otorga permisos para Suscribirse a tableros en Lightning Experience para programar actualizaciones de tableros y enviar notificaciones por correo electrónico.
+
+Requiere este permiso:
+* Run Reports: Otorga permisos para Ejecutar informes y paneles.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BECS - Subscribe to Dashboards</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeToLightningDashboards</name>
+    </userPermissions>
+</PermissionSet>

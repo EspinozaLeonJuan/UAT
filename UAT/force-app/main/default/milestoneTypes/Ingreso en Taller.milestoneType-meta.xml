@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MilestoneType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Etapa que transcurre desde que se produce el ingreso en taller, hasta que se envía la orden de trabajo</description>
+    <recurrenceType>none</recurrenceType>
+</MilestoneType>

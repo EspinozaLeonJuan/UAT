@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label></label>
+            <section>Account Summary</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BECS_AccountLayout</layout>
+        <sections>
+            <label></label>
+            <section>Account Summary</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BECS_PersonAccountLayout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DEL CLIENTE</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Formato de cuenta personal</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE CONTACTO DE LA CUENTA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE DIRECCIÓN DE LA CUENTA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE ORIGEN DE LA CUENTA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN DE SISTEMA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>INFORMACIÓN PRINCIPAL DE LA CUENTA</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>OTRA INFORMACIÓN DE LA CUENTA</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Child_Account</name>
+    </quickActions>
+</CustomObjectTranslation>

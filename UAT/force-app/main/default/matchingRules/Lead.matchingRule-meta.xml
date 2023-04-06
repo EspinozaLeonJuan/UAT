@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <matchingRules>
+        <fullName>HDI4I_Prospecto_duplicado</fullName>
+        <description>Regla que permite detectar prospectos duplicados.</description>
+        <label>Prospecto duplicado</label>
+        <matchingRuleItems>
+            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
+            <fieldName>FirstName</fieldName>
+            <matchingMethod>Exact</matchingMethod>
+        </matchingRuleItems>
+        <ruleStatus>Inactive</ruleStatus>
+    </matchingRules>
+</MatchingRules>

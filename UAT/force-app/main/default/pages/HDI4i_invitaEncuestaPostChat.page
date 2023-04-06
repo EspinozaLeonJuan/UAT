@@ -1,0 +1,35 @@
+<apex:page controller="HDI4i_invitaEncuestaPostChatCtr" applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false">
+    <meta http-equiv = "refresh" content = " url = {!vinculoEncuesta};" />
+    <!-- <body onLoad="popup('{!vinculoEncuesta}', 'ad')">  -->       
+    <body>        
+        <p>
+            &nbsp;
+        </p>
+        <p style="text-align: center;font-family: Noto Sans, sans-serif;text-decoration: none; color: green; font-size: 18px;">
+            ¡Muchas gracias!
+        </p>
+        <p style="text-align: center;">
+            <A style="color: black; text-align: center;font-family: Noto Sans, sans-serif; text-decoration: none; font-size: 18px;" target="_blank" HREF="{!vinculoEncuesta}"><br />Haz <b>clic aquí</b> para contestar la encuesta</A>
+        </p>
+        <!--
+        <script type="text/javascript">
+          window.top.location = '{!vinculoEncuesta}';
+        </script>
+        -->
+
+        <script type="text/javascript">
+            function popup(mylink, windowname) {
+                var topss=screen.height-700;
+                var lefts=screen.width-1000;
+                if (! window.focus) return true; 
+                var href; 
+                if (typeof(mylink) == 'string') {
+                    href=mylink; 
+                } else {
+                    href=mylink.href;
+                }
+                window.open(href, windowname, 'toolbar=no,location=no,status=no,menubar=no,resizable=yes,top='+topss+',left='+lefts+',width=700,height=600,scrollbars=yes'); return false; 
+            }
+        </script>
+    </body>
+</apex:page>

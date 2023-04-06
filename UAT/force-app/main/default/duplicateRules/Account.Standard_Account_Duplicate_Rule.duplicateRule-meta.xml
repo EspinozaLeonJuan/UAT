@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuplicateRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOnInsert>Allow</actionOnInsert>
+    <actionOnUpdate>Allow</actionOnUpdate>
+    <alertText>Está creando un registro duplicado. Le recomendamos que utilice un registro existente en su lugar.</alertText>
+    <description>Regla duplicada para cuentas que utilizan la regla de comparación de cuentas estándar.</description>
+    <duplicateRuleFilter xsi:nil="true"/>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>PersonAccount</matchRuleSObjectType>
+        <matchingRule>HDI4I_Regla_coincidencia_cuenta_estandar</matchingRule>
+        <objectMapping>
+            <inputObject>Account</inputObject>
+            <mappingFields>
+                <inputField>HDI4I_Digito_verificador_rut_cliente__c</inputField>
+                <outputField>HDI4I_Digito_verificador_rut_cliente__c</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>HDI4I_RUT_del_cliente__c</inputField>
+                <outputField>HDI4I_RUT_del_cliente__c</outputField>
+            </mappingFields>
+            <outputObject>PersonAccount</outputObject>
+        </objectMapping>
+    </duplicateRuleMatchRules>
+    <isActive>true</isActive>
+    <masterLabel>Regla de duplicación de cuenta estándar</masterLabel>
+    <operationsOnInsert>Alert</operationsOnInsert>
+    <operationsOnInsert>Report</operationsOnInsert>
+    <operationsOnUpdate>Alert</operationsOnUpdate>
+    <operationsOnUpdate>Report</operationsOnUpdate>
+    <securityOption>EnforceSharingRules</securityOption>
+    <sortOrder>1</sortOrder>
+</DuplicateRule>

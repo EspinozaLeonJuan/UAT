@@ -15,6 +15,14 @@ public  class HDI_Siniestros_Test {
         SlaProcess sProcess = new HDI_SlaProcessSelector().selectByName(Label.SLAs_Siniestros);
         asignacion.SlaProcessId = sProcess.id;
         insert asignacion;
+        
+        User updateUsuario = new User(Id = userinfo.getUserId(), HDI4I_LiquidadorId__c = '10009684');
+        update updateUsuario;
+        
+        SIN_EjecutivoLiquidador__c ejecutivoLiquidador = new SIN_EjecutivoLiquidador__c();
+        ejecutivoLiquidador.Liquidador__c = userinfo.getUserId();
+        ejecutivoLiquidador.Ejecutivo_Siniestro__c = userinfo.getUserId();
+        insert ejecutivoLiquidador;
     }
 
     @IsTest
@@ -186,7 +194,9 @@ public  class HDI_Siniestros_Test {
             request.requestBody = Blob.valueOf(myJSON);
             RestContext.request = request;
             API_Siniestros.actualizar();
-
+			
+        	HDI_Cases.createLog(null, 'Error al crear messaging user', 'Descripcion');
+        
         Test.stopTest();
 
     }

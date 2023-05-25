@@ -1,5 +1,7 @@
 @RestResource(urlMapping='/case/*')
 global without sharing class API_Siniestros {
+    static final string FIJO_TELEFONO = '+569';
+
     @HttpPost
     global static String create(){
         RestRequest req = RestContext.request;
@@ -21,8 +23,9 @@ global without sharing class API_Siniestros {
             if(tipoEvento == '100'){
 
                 //if (!listEjecutivo.isEmpty()) {
+                    //Id idTRCaseSiniestro = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get('HDI_Siniestro_SIN').getRecordTypeId();
                     Id idTRCaseSiniestro = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get('Siniestro').getRecordTypeId();
-                    list<User> siniestroOwnerDefault = new HDI_UserSelector().selectByFuncion('Jefatura de Liquidadores Flotas');
+                    //list<User> siniestroOwnerDefault = new HDI_UserSelector().selectByFuncion('Jefatura de Liquidadores Flotas');
 
                     Case caso = new Case();
 
@@ -42,9 +45,9 @@ global without sharing class API_Siniestros {
                     caso.Origin = co.canalDenuncia;
                     caso.HDI4I_Rut_del_asegurado__c = co.rutAsegurado;
                     caso.HDI4I_Nombre_del_asegurado__c = co.nombreAsegurado;
-                    caso.SuppliedPhone = '+569'+co.celularAsegurado;
+                    caso.SuppliedPhone = FIJO_TELEFONO + co.celularAsegurado;
+                    caso.HDI_CelularAsegurado__c = FIJO_TELEFONO + co.celularAsegurado;
                     caso.SuppliedEmail = co.mailContacto;
-                    caso.HDI_CelularAsegurado__c = '+569'+co.celularAsegurado;
                     caso.HDI4I_Nombre_del_conductor__c = co.nombreConductor;
                     caso.HDI4I_Rut_del_conductor__c = co.rutConductor;
                     caso.HDI4I_Marca__c = co.marca;
@@ -59,7 +62,7 @@ global without sharing class API_Siniestros {
                     caso.TipoEvento__c = tipoEvento;
 
                     try{
-                        caso.OwnerId = siniestroOwnerDefault[0].id;
+                        //caso.OwnerId = siniestroOwnerDefault[0].id;
 
                         Database.DMLOptions options = new Database.DMLOptions();
                         options.assignmentRuleHeader.useDefaultRule = false;

@@ -3,6 +3,24 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ChatCenterFacebook</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>MessagingSession</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ChatCenterFacebook</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>MessagingSession</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Transcripci_n_de_chat_P_gina_de_registro</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -56,11 +74,10 @@
     <tabs>standard-Feed</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
-    <tabs>standard-OmnichannelInventory</tabs>
-    <tabs>standard-InsurancePolicy</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-Task</tabs>
+    <tabs>standard-MessagingSession</tabs>
     <tabs>standard-LiveAgentSession</tabs>
     <tabs>standard-LiveChatTranscript</tabs>
     <tabs>standard-LiveChatVisitor</tabs>
@@ -86,9 +103,6 @@
             <tab>standard-Feed</tab>
         </mappings>
         <mappings>
-            <tab>standard-InsurancePolicy</tab>
-        </mappings>
-        <mappings>
             <tab>standard-LiveAgentSession</tab>
         </mappings>
         <mappings>
@@ -98,7 +112,7 @@
             <tab>standard-LiveChatVisitor</tab>
         </mappings>
         <mappings>
-            <tab>standard-OmnichannelInventory</tab>
+            <tab>standard-MessagingSession</tab>
         </mappings>
         <mappings>
             <tab>standard-Task</tab>

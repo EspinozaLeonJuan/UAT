@@ -3,10 +3,13 @@
     <actionCalls>
         <name>Enviar_Whatsapp_Denuncio</name>
         <label>Enviar Whatsapp Denuncio</label>
-        <locationX>50</locationX>
-        <locationY>455</locationY>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
         <actionName>liveMessageNotification</actionName>
         <actionType>liveMessageNotification</actionType>
+        <connector>
+            <targetReference>crearWhatsappHistoryWhatsAppEnviado</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>contextRecordId</name>
@@ -35,34 +38,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>56.0</apiVersion>
-    <decisions>
-        <name>verifCel</name>
-        <label>verifCel</label>
-        <locationX>182</locationX>
-        <locationY>335</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>celCorrecto</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>largoCel</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Enviar_Whatsapp_Denuncio</targetReference>
-            </connector>
-            <label>celCorrecto</label>
-        </rules>
-    </decisions>
     <environments>Default</environments>
-    <formulas>
-        <name>largoCel</name>
-        <dataType>Boolean</dataType>
-        <expression>LEN({!$Record.HDI_CelularAsegurado__c}) &gt; 4</expression>
-    </formulas>
     <interviewLabel>Casos de Siniestro {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Casos de Siniestro</label>
     <processMetadataValues>
@@ -84,11 +60,31 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>crearWhatsappHistoryWhatsAppEnviado</name>
+        <label>crearWhatsappHistoryWhatsAppEnviado</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>Caso__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Estado__c</field>
+            <value>
+                <stringValue>Whatsapp enviado</stringValue>
+            </value>
+        </inputAssignments>
+        <object>WhatsAppProcessHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <start>
-        <locationX>56</locationX>
+        <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>verifCel</targetReference>
+            <targetReference>Enviar_Whatsapp_Denuncio</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -109,5 +105,5 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
 </Flow>

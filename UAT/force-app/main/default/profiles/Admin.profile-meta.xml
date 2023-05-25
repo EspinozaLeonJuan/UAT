@@ -493,6 +493,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HDI_ApiSiniestroRoute_SIN_TST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HDI_ApiSiniestro_SIN_TST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HDI_ApiSiniestros_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HDI_ApiSiniestros_SIN</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -638,6 +650,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>HDI_Tasks</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HDI_TercerosSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1139,6 +1155,26 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Cases_rebuild_workflow_and_process_builder</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>ChatEncuestaBot_CrearRegistros</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>ChatTranscript_CalificacionBot</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Chat_Session_Owner_Change</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Chat_Transcript_rebuild_Flows</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>FLOW1_Convierte_y_actualiza</flow>
     </flowAccesses>
     <flowAccesses>
@@ -1191,6 +1227,14 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>HDI_Record_Trigger_Case_After_insert_SIN</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>HDI_Subflow_Update_Contact_Fields_SIN</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Intro_Bot_Chat_Transcript_End</flow>
     </flowAccesses>
     <flowAccesses>
@@ -1203,7 +1247,15 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Live_Chat_Transcrpt_Event_Tiempos_de_transcripci_n</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>MessagingSession_OwnerDiferenteAlCaso</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>MessagingSession_Tipografia</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -1236,6 +1288,18 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>SIN_CasoSiniestro</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>SIN_CasoSiniestro_TipoRegistroNuevo</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>SLA_Total_Chat_Center</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>SLA_Total_Chat_Center_2</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -1342,6 +1406,9 @@
         <layout>BusinessMilestone-Formato de Evento clave de negocio</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>BusinessProcessTypeDef-Business Process Type Definition Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>BusinessProfile-Formato de Perfil de negocio</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1394,6 +1461,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseMilestone-Case Milestone Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ChatEncuestaBot__c-Chat Encuesta Bot Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Claim-Formato de reclamación</layout>
@@ -1559,6 +1629,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>HDI4i_Cola_round_robin__c-Formato Cola round robin</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HDI_CfgPrefijo__mdt-HDI_CfgPrefijo Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>HDI_SObjectTriggerFlag__mdt-Formato Trigger Flag</layout>
@@ -1844,6 +1917,9 @@
         <layout>Web_Service_Requiered_Field__mdt-Web Service Requiered Field Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>WhatsAppProcessHistory__c-WhatsApp Process History Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>WorkAccess-Access Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2044,6 +2120,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>SIN_EjecutivoLiquidador__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>WhatsAppProcessHistory__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

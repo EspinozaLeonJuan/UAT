@@ -17,14 +17,15 @@ public without sharing class HDI_MessagingEndUser extends fflib_SObjectDomain{
     public static final String CONTS_WHATSAPP = 'whatsapp';
     public static final String CONTS_WHATSAPP_CONPUNTOS = 'whatsapp:';
     private static final String CONTS_IMPLICITLYOPTEDIN = 'ImplicitlyOptedIn';
-    private static final String CONTS_WHATSAPP_CHANNEL = 'WhatsApp_CL_whatsapp_56958886533';
+    //private static final String CONTS_WHATSAPP_CHANNEL = 'WhatsApp_CL_whatsapp_56958886533'; //SANDBOX
+    private static final String CONTS_WHATSAPP_CHANNEL = 'WhatsApp_CL_whatsapp_56971388805'; //PRODUCCION
 
     public HDI_MessagingEndUser(List<MessagingEndUser> sObjectList)
     {
         super(sObjectList);
     }
 
-    public void crearMessagingEndUser(HDI_Contacts contacts){
+    public void crearMessagingEndUser(HDI_Contacts contacts, List<Case> listCases){
         try {
 
             list<MessagingEndUser> listNewMessagingEndUser = new list<MessagingEndUser>();
@@ -43,7 +44,8 @@ public without sharing class HDI_MessagingEndUser extends fflib_SObjectDomain{
             insert listNewMessagingEndUser;
 
         } catch (Exception e) {
-            System.debug(LoggingLevel.DEBUG, 'HDI_MessagingEndUser: ' + e.getMessage());    
+            System.debug(LoggingLevel.DEBUG, 'HDI_MessagingEndUser: ' + e.getMessage());   
+            HDI_Cases.createLog(listCases[0].Id, 'Error al crear messaging user', e.getMessage());    
         }
     }
 }

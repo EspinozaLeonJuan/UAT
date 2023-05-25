@@ -1,7 +1,7 @@
 @isTest
 public with sharing class BECS_LogErrorTLTest {
     
-    @IsTest
+    @isTest
     static void methodName(){
         
         Test.startTest();
@@ -22,6 +22,22 @@ public with sharing class BECS_LogErrorTLTest {
             List<ORG_IntegrationLogError__c> newList = [Select ORG_Solicitud__c,ORG_Estado__c,ORG_Proyecto__c From ORG_IntegrationLogError__c];
             HDI_LogErrorTL.retryCreateOpportunity(newList);
 
+        Test.stopTest();
+        
+    }
+
+    @isTest
+    static void methodName2(){
+        
+        Test.startTest();
+            List<ORG_IntegrationLogError__c> logError = new List<ORG_IntegrationLogError__c>();
+
+
+            HDI_WrapperSiniestros_SIN sinWrapper = new HDI_WrapperSiniestros_SIN();
+
+            logError.add(BECS_LogErrorTL.siniestroLogError('msj de error', sinWrapper));
+
+            new BECS_LogErrorTL(logError).insertLogs(logError);
         Test.stopTest();
         
     }

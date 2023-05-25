@@ -19,6 +19,24 @@
         <pageOrSobjectType>MessagingSession</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>HDI_Siniestro_SIN</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>HDI_Siniestro_SIN</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <content>P_gina_de_inicio_predeterminada</content>
         <formFactor>Large</formFactor>
@@ -62,7 +80,7 @@
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.HDI_Siniestro_SIN</recordType>
         <type>Flexipage</type>
-        <profile>HDI_Asesores Siniestro_SIN</profile>
+        <profile>HDI Siniestros SIN</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -71,61 +89,7 @@
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.HDI_Siniestro_SIN</recordType>
         <type>Flexipage</type>
-        <profile>HDI_Asesores Siniestro_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Ejecutivas Siniestro_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Ejecutivas Siniestro_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Liquidadores Siniestro_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Liquidadores Siniestro_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Torre Control_SIN</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>HDI_Siniestro_SIN</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.HDI_Siniestro_SIN</recordType>
-        <type>Flexipage</type>
-        <profile>HDI_Torre Control_SIN</profile>
+        <profile>HDI Siniestros SIN</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -323,6 +287,7 @@
     <tabs>standard-Dashboard</tabs>
     <tabs>SIN_EjecutivoLiquidador__c</tabs>
     <tabs>standard-OmniSupervisorLightning</tabs>
+    <tabs>WhatsAppProcessHistory__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>HDI_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -330,9 +295,13 @@
             <tab>SIN_EjecutivoLiquidador__c</tab>
         </mappings>
         <mappings>
+            <tab>WhatsAppProcessHistory__c</tab>
+        </mappings>
+        <mappings>
             <tab>standard-Account</tab>
         </mappings>
         <mappings>
+            <fieldName>Messaging_User__c</fieldName>
             <tab>standard-Case</tab>
         </mappings>
         <mappings>

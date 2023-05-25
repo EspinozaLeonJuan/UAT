@@ -72,9 +72,16 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <filters>
+            <field>ChannelName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>whatsapp:+56958886533</stringValue>
+            </value>
+        </filters>
         <object>MessagingSession</object>
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
 </Flow>

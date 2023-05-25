@@ -1,5 +1,5 @@
 trigger ValidarContact on Contact (before insert) {
-	for (Contact c : Trigger.new) {
+    for (Contact c : Trigger.new) {
         if (!String.isEmpty(c.Rut_sin_puntos_y_con_gui_n__c)) {
             Pattern p = Pattern.compile('^[a-zA-Z0-9]{7,8}-[0-9kK]$');
             Matcher m = p.matcher(c.Rut_sin_puntos_y_con_gui_n__c);

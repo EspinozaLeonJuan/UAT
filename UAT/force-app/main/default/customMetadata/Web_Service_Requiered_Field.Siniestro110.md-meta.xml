@@ -3,7 +3,11 @@
     <label>110</label>
     <protected>false</protected>
     <values>
+        <field>Case_Owner__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Fields_Siniestro__c</field>
-        <value xsi:type="xsd:string">numeroEvento,numeroSiniestro,fechaAsignacion</value>
+        <value xsi:type="xsd:string">numeroEvento,numeroSiniestro</value>
     </values>
 </CustomMetadata>

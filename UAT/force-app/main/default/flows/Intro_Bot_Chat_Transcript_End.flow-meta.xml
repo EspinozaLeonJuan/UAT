@@ -69,14 +69,13 @@
             <targetReference>ActualizarChatTranscript</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>calificacion</name>
-        <dataType>Number</dataType>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-        <scale>0</scale>
     </variables>
     <variables>
         <name>comentarios</name>

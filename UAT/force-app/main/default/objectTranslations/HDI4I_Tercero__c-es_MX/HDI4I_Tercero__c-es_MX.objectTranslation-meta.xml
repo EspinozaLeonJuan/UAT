@@ -13,6 +13,10 @@
         <layout>Formato Tercero</layout>
         <sections>
             <label></label>
+            <section>ELIMINAR DEL FORMATO</section>
+        </sections>
+        <sections>
+            <label></label>
             <section>INFORMACIÓN DE PARTICIPANTES DEL TERCERO</section>
         </sections>
         <sections>

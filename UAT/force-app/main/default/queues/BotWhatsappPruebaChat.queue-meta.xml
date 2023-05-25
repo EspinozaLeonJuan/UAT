@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>BotWhatsappPruebaChat</name>
+    <queueMembers>
+        <users>
+            <user>francis.oseguera.ext@hdi.cl</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>BotWhatsappPruebaChat</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>LiveChatTranscript</sobjectType>
+    </queueSobject>
+</Queue>

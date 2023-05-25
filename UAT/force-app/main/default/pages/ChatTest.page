@@ -1,11 +1,11 @@
 <apex:page >
 <style type='text/css'>
     .embeddedServiceHelpButton .helpButton .uiButton {
-        background-color: #388403;
+        background-color: #000000;
         font-family: "Trebuchet MS", sans-serif;
     }
     .embeddedServiceHelpButton .helpButton .uiButton:focus {
-        outline: 1px solid #388403;
+        outline: 1px solid #000000;
     }
 </style>
 

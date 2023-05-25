@@ -20,7 +20,7 @@
         <milestoneName>Evaluación</milestoneName>
         <minutesToComplete>2880</minutesToComplete>
         <successActions>
-            <name>SINIS_FLD_STATUS_EVALUADO</name>
+            <name>Case.SINIS_FLD_STATUS_EVALUADO</name>
             <type>FieldUpdate</type>
         </successActions>
         <useCriteriaStartTime>true</useCriteriaStartTime>
@@ -35,7 +35,7 @@
         <milestoneName>Ingreso en Taller</milestoneName>
         <minutesToComplete>43200</minutesToComplete>
         <successActions>
-            <name>SINIS_FLD_STATUS_INGRESADO_TALLER</name>
+            <name>Case.SINIS_FLD_STATUS_INGRESADO_TALLER</name>
             <type>FieldUpdate</type>
         </successActions>
         <useCriteriaStartTime>true</useCriteriaStartTime>
@@ -50,7 +50,7 @@
         <milestoneName>Orden de trabajo enviada</milestoneName>
         <minutesToComplete>2880</minutesToComplete>
         <successActions>
-            <name>SINIS_FLD_STATUS_ORDEN</name>
+            <name>Case.SINIS_FLD_STATUS_ORDEN</name>
             <type>FieldUpdate</type>
         </successActions>
         <timeTriggers>
@@ -69,7 +69,7 @@
         <milestoneName>Entrega Vehículo</milestoneName>
         <minutesToComplete>43200</minutesToComplete>
         <successActions>
-            <name>SINIS_FLD_STATUS_ENTREGA_VEHICULO</name>
+            <name>Case.SINIS_FLD_STATUS_ENTREGA_VEHICULO</name>
             <type>FieldUpdate</type>
         </successActions>
         <timeTriggers>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Conjunto de permisos temporal. Usado para los desarrollos que todavía no se suben a producción</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_contacto_Asesor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_contacto_Ejecutiv__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_contacto_Taller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_email_Asesor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_email_Ejecutivo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDIFecha_actualizacion_email_Taller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.HDITipo_de_Servicio_Taller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>HDI Siniestros TEMPORAL USUARIO</label>
+</PermissionSet>

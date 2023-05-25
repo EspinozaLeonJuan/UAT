@@ -5,13 +5,7 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
     public HDI_Cases(List<Case> sObjectList) {
         super(sObjectList);
     }
-    
-    public class Constructor implements fflib_SObjectDomain.IConstructable {
-        public fflib_SObjectDomain construct(List<SObject> sObjectList) {
-            return new HDI_Cases(sObjectList);
-        }
-    }
-    
+        
     public override void onBeforeInsert() {
         
         list<Contact> listContactForMessagin = new List<Contact>();
@@ -52,8 +46,7 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
                     caso.ContactId = mapContactRut.get(caso.HDI4I_Rut_del_asegurado__c).Id; 
                     listContactForMessagin.add(new Contact(Id = caso.ContactId, LastName = caso.HDI4I_Nombre_del_asegurado__c, MobilePhone = caso.HDI_CelularAsegurado__c)); 
                 }else{
-                     /*COMENTADO LUCAS NO SE REQUIERE, LINEA DE CODIGO UTILIZADA PARA ENVIAR CORREO */
-                    //listCaseToCreateContact.add(caso);    
+                    listCaseToCreateContact.add(caso);    
                 }
             }
 
@@ -61,24 +54,27 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
                 HDI_Cases casesToCreateCase = new HDI_Cases(listCaseToCreateContact);
                 HDI_Contacts createContacts = new HDI_Contacts(new List<Contact>());
                 List<Contact> listNewContact = createContacts.crearContact(casesToCreateCase);
-
+                listNewContact = new HDI_ContactSelector().selectByRut(rutSet);
+				System.debug(listNewContact);
+                
                 mapContactRut = new map<String, Contact>();
                 for (Contact conta: listNewContact) {
+                    System.debug(conta);
                     mapContactRut.put(conta.Rut_sin_puntos_y_con_gui_n__c, conta);
                 }
 
                 for(Case caso : (List<Case>) casesToCreateCase.Records){
                     caso.ContactId = mapContactRut.get(caso.HDI4I_Rut_del_asegurado__c).Id;
                 }
+                setMessagingEndUser(rutSet, celularSet, listNewContact, listCaseSiniestros); 
+            }else {
+                setMessagingEndUser(rutSet, celularSet, listContactForMessagin, listCaseSiniestros);    
             }
-
-            /*COMENTADO LUCAS. NO SE REQUIERE ENVIAR CORREO */
-            //setMessagingEndUser(rutSet, celularSet, listContactForMessagin); 
         } 
     }
 
     public override void onBeforeUpdate(Map<Id, SObject> sObjectMap) {
-        Set<String> liquidadorIdSet = new Set<String>();
+       Set<String> liquidadorIdSet = new Set<String>();
         Map<Id, Case> mapOld = (Map<Id, Case>)Trigger.oldMap;
 
         for(Case c : (List<Case>) Records){
@@ -151,14 +147,9 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
     */
     
     public map<String, SIN_EjecutivoLiquidador__c> getLiquidadores(Set<String> liquidadorIdSet){
-        System.debug(liquidadorIdSet);
         String liq = String.valueOf(liquidadorIdSet).replace('{', '').replace('}', '');
-        System.debug(liq);
-        List<SIN_EjecutivoLiquidador__c> ej = new HDI_EjecutivoLiquidadorSelector().byLiquidadorId(liq);
-        System.debug(ej);
         map<String, SIN_EjecutivoLiquidador__c> mapUserLiquidador = new map<String, SIN_EjecutivoLiquidador__c>();
         for (SIN_EjecutivoLiquidador__c usuario : new HDI_EjecutivoLiquidadorSelector().byLiquidadorId(liq)) {
-            System.debug(usuario);
             mapUserLiquidador.put(usuario.Id_Liquidador__c, usuario);
         }
         System.debug(mapUserLiquidador);
@@ -176,17 +167,17 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
         if(mapUserLiquidador.containsKey(caso.HDI4I_ID_del_liquidador__c)){
             caso.OwnerId  = mapUserLiquidador.get(caso.HDI4I_ID_del_liquidador__c).Ejecutivo_Siniestro__c;
             caso.SIN_Liquidador__c = mapUserLiquidador.get(caso.HDI4I_ID_del_liquidador__c).Liquidador__c;
-            System.debug(caso.OwnerId);
+            caso.SIN_EnviarMensajeWhatsapp__c = true;
         } 
     }
 
 
-    public void setMessagingEndUser(Set<String> rutSet, Set<String> celularSet, List<Contact> listContactForMessagin){
+    public void setMessagingEndUser(Set<String> rutSet, Set<String> celularSet, List<Contact> listContactForMessagin, List<Case> listCases){
         map<String, MessagingEndUser> mapMessaging = new HDI_MessagingEndUserSelector().selectByNumCelular(celularSet);
         if(mapMessaging.isEmpty()){
             HDI_Contacts listContactos = new HDI_Contacts(listContactForMessagin);
             HDI_MessagingEndUser messagingEU = new HDI_MessagingEndUser(new List<MessagingEndUser>());
-            messagingEU.crearMessagingEndUser(listContactos);
+            messagingEU.crearMessagingEndUser(listContactos, listCases);
 
             mapMessaging = new HDI_MessagingEndUserSelector().selectByNumCelular(celularSet);
         }
@@ -195,6 +186,19 @@ public with sharing class HDI_Cases extends fflib_SObjectDomain{
             if(mapMessaging.containsKey(HDI_MessagingEndUser.CONTS_WHATSAPP_CONPUNTOS + caso.HDI_CelularAsegurado__c)){
                 caso.Messaging_User__c = mapMessaging.get(HDI_MessagingEndUser.CONTS_WHATSAPP_CONPUNTOS + caso.HDI_CelularAsegurado__c).id;
             }
+        }
+    }
+
+    public static void createLog(String logCase, String logEstado, String logDescripcion){
+        try {
+            WhatsAppProcessHistory__c log = new WhatsAppProcessHistory__c();
+            log.Caso__c = logCase;
+            log.Estado__c = logEstado; 
+            log.Descripcion__c = logDescripcion;
+            insert log;
+
+        } catch (Exception e) {
+            System.debug('HDI_Cases:createLog: ' + e.getMessage());        
         }
     }
 }

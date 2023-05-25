@@ -187,6 +187,11 @@ Joins Messaging Users to Sessions, allowing us to split reports by channel</desc
             <field>SIN_MensajeTopeConversaciones__c</field>
             <table>MessagingEndUser.MessagingSession</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Tipografia__c</field>
+            <table>MessagingEndUser.MessagingSession</table>
+        </columns>
         <masterLabel>Messaging Sessions</masterLabel>
     </sections>
 </ReportType>

@@ -146,6 +146,11 @@
             <field>SIN_MensajeTopeConversaciones__c</field>
             <table>MessagingSession</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Tipografia__c</field>
+            <table>MessagingSession</table>
+        </columns>
         <masterLabel>Messaging Sessions</masterLabel>
     </sections>
 </ReportType>

@@ -5,15 +5,10 @@
     <queueMembers>
         <users>
             <user>camila.torres@hdi.cl</user>
-            <user>francis.oseguera.ext@hdi.cl</user>
-            <user>lucas.miranda.ext@hdi.cl</user>
             <user>mariajose.valladares@hdi.cl</user>
         </users>
     </queueMembers>
     <queueRoutingConfig>Facebook</queueRoutingConfig>
-    <queueSobject>
-        <sobjectType>MessagingEndUser</sobjectType>
-    </queueSobject>
     <queueSobject>
         <sobjectType>MessagingSession</sobjectType>
     </queueSobject>

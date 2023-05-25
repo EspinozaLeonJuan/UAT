@@ -13,7 +13,6 @@ public without sharing class BECS_LogErrorTL extends fflib_SObjectDomain{
         }
     }
 
-
     public static ORG_IntegrationLogError__c fullLog(String name, BECS_OpportunityAPI.InParameters request, String estado, String errorMessage, HDI_ApiSiniestroJSON siniestro){
         ORG_IntegrationLogError__c logError = new ORG_IntegrationLogError__c();
 
@@ -42,7 +41,19 @@ public without sharing class BECS_LogErrorTL extends fflib_SObjectDomain{
         return logError;
     }
 
+    public static ORG_IntegrationLogError__c siniestroLogError(String errorMessage, HDI_WrapperSiniestros_SIN siniestro){
 
+        ORG_IntegrationLogError__c logError = new ORG_IntegrationLogError__c();
 
+        logError.name = 'Error';
+        logError.ORG_FechaHoraError__c = Datetime.now();
+        logError.ORG_DescriptionError__c = errorMessage;
+        logError.ORG_Estado__c = 'No procesado';
+        logError.ORG_Proyecto__c = 'Gestion de Siniestros';
+        logError.ORG_Solicitud__c = System.JSON.serialize(siniestro);
+        logError.HDIN_mero_de_Siniestro__c = siniestro.numeroSiniestro;
+
+        return logError;
+    }
 
 }

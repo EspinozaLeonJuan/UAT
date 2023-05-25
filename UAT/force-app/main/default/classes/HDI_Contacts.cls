@@ -5,21 +5,21 @@ public with sharing class HDI_Contacts extends fflib_SObjectDomain{
         super(sObjectList);
     }
     
-    public class Constructor implements fflib_SObjectDomain.IConstructable {
+/*     public class Constructor implements fflib_SObjectDomain.IConstructable {
         public fflib_SObjectDomain construct(List<SObject> sObjectList) {
             return new HDI_Contacts(sObjectList);
         }
-    }
+    } */
 
-    public override void onAfterInsert() {
+    /*public override void onAfterInsert() {
         HDI_MessagingEndUser messagingEU = new HDI_MessagingEndUser(new List<MessagingEndUser>());
         messagingEU.crearMessagingEndUser(this);
-    }
+    }*/
 
-    public override void onAfterUpdate(Map<Id, SObject> sObjectMap) {
+    /* public override void onAfterUpdate(Map<Id, SObject> sObjectMap) {
         HDI_MessagingEndUser messagingEU = new HDI_MessagingEndUser(new List<MessagingEndUser>());
         //messagingEU.crearMessagingEndUser(this);   
-    }
+    } */
 
 
     public List<Contact> crearContact(HDI_Cases cases){
@@ -40,7 +40,8 @@ public with sharing class HDI_Contacts extends fflib_SObjectDomain{
             return listNewContacts;
 
         }catch (Exception e) {
-            System.debug(LoggingLevel.DEBUG, 'HDI_Contacts: ' + e.getMessage());    
+            List<Case> casos = (List<Case>) cases.Records;
+            HDI_Cases.createLog(casos[0].Id, 'Error al crear contacto', e.getMessage());    
             return null;
         }
     }

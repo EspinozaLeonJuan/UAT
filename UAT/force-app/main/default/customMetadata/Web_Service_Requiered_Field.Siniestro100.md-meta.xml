@@ -3,7 +3,11 @@
     <label>100</label>
     <protected>false</protected>
     <values>
+        <field>Case_Owner__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Fields_Siniestro__c</field>
-        <value xsi:type="xsd:string">fechaIngresoDenuncio,numeroSiniestro,origenCaso,fechaOcurrencia,nombreAsegurado,apellidosAsegurado,rutAsegurado,dvAsegurado,culpabilidadAsegurado,numeroPoliza,ramo,producto,certificado,apellidosConductor,rutConductor,dvConductor,marcaModelo,marca,modelo,anioVehiculo,patenteVehiculo,relato,nombreDenunciante,apellidosDenunciante</value>
+        <value xsi:type="xsd:string">fechaIngresoDenuncio,numeroSiniestro,origenCaso,fechaOcurrencia,nombreAsegurado,apellidosAsegurado,rutAsegurado,dvAsegurado,culpabilidadAsegurado,numeroPoliza,ramo,producto,certificado,nombreConductor,apellidosConductor,rutConductor,dvConductor,marcaModelo,marca,modelo,anioVehiculo,patenteVehiculo,relato,nombreDenunciante,apellidosDenunciante</value>
     </values>
 </CustomMetadata>

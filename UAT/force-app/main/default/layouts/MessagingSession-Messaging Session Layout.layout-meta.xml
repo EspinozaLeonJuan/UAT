@@ -52,7 +52,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SIN_MensajeTopeConversaciones__c</field>
+                <field>Tipografia__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -95,6 +95,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AgentMessageCount</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SIN_MensajeTopeConversaciones__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

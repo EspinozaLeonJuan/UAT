@@ -32,5 +32,12 @@
                 <value>Chatcenter</value>
             </criteriaItems>
         </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>HDI Siniestro</value>
+            </criteriaItems>
+        </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
